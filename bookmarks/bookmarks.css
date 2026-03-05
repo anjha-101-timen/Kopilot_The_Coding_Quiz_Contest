@@ -1,0 +1,9 @@
+.bmGrid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px}
+.bmCard{padding: 18px; border-radius: 26px; background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); border: 1px solid var(--stroke); box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.08); position: relative; overflow:hidden}
+.bmTop{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.bmTitle{font-weight:800; letter-spacing:-.02em}
+.bmMeta{margin-top:8px}
+.bmMeta .small{display:block; margin-top:4px}
+.bmActions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+.bmKind{font-size:12px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--stroke); background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 72%, transparent), color-mix(in srgb, var(--card) 72%, transparent))}
+@media (max-width: 800px){.bmGrid{grid-template-columns: 1fr;} }

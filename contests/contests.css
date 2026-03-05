@@ -1,0 +1,39 @@
+.contestsFilters{padding: 16px;}
+
+.filtersTop{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+
+.filtersTabs{display:flex; gap:8px; flex-wrap:wrap;}
+
+.filterTab{border: 1px solid var(--stroke); background: var(--card2); color: var(--muted); padding: 8px 12px; border-radius: var(--radius2); cursor:pointer; font-weight:600; font-size:13px; transition: background .15s, border-color .15s, color .15s;}
+.filterTab:hover{background: var(--card3); border-color: var(--stroke2); color: var(--text);}
+.filterTab.on{background: var(--brand); border-color: var(--brand); color:#000;}
+
+.filtersGrid{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 14px;}
+
+@media (max-width: 1000px){
+  .filtersGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
+}
+@media (max-width: 620px){
+  .filtersGrid{grid-template-columns: 1fr;}
+}
+
+.contestsTableWrap{overflow:auto; border-radius: var(--radius2); border: 1px solid var(--stroke); background: var(--card2);}
+
+.contestsTable{width: 100%; border-collapse: collapse; min-width: 980px;}
+.contestsTable thead th{position: sticky; top:0; background: var(--bg1); color: var(--muted); text-align:left; font-size: 12px; font-weight: 700; padding: 12px; border-bottom: 1px solid var(--stroke);}
+.contestsTable tbody td{padding: 12px; border-bottom: 1px solid color-mix(in srgb, var(--stroke) 70%, transparent); color: var(--text); font-size: 13px; vertical-align: top;}
+.contestsTable tbody tr:hover td{background: var(--card3);}
+
+.statusPill{display:inline-flex; align-items:center; gap:8px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--stroke); background: var(--card); font-weight:700; font-size: 12px;}
+.statusDot{width: 8px; height: 8px; border-radius: 999px; background: var(--muted2);}
+.statusPill.live{border-color: var(--ok);}
+.statusPill.live .statusDot{background: var(--ok);}
+.statusPill.upcoming{border-color: var(--warn);}
+.statusPill.upcoming .statusDot{background: var(--warn);}
+.statusPill.past{border-color: var(--bad);}
+.statusPill.past .statusDot{background: var(--bad);}
+
+.mono{font-family: var(--mono); font-size: 12px; color: var(--muted2);}
+
+.nameCell{font-weight: 700; color: var(--text);}
+.subCell{margin-top: 4px; color: var(--muted2); font-size: 12px;}

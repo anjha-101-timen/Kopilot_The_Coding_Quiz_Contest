@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contest Hub • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/hub/hub.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Contest Hub</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/hub/hub.html">Contest Hub</a>
+      <a class="navLink" href="/read/read.html">Read</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="/bookmarks/bookmarks.html">Bookmarks</a>
+      <a class="navLink" href="/notifications/notifications.html">Notifications</a>
+      <a class="navLink" href="/profile/profile.html">Profile</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Contest Hub</h1>
+        <div class="pageSub">Explore exams, track announcements, and jump into contests. Everything here is tailored for Coding Quiz Contest.</div>
+      </div>
+      <div class="row">
+        <button class="btn" id="btnRefine">Refine</button>
+        <a class="btn primary" href="/read/read.html">Browse Exams</a>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike">
+        <div class="tabs" role="tablist" aria-label="Contest Hub Tabs">
+          <button class="tab on" id="tabDesc" role="tab" aria-selected="true">Description</button>
+          <button class="tab" id="tabTests" role="tab" aria-selected="false">Tests</button>
+          <button class="tab" id="tabAnn" role="tab" aria-selected="false">Announcements</button>
+        </div>
+      </div>
+
+      <div class="panel cardlike" id="viewDesc">
+        <div class="row" style="justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div>
+            <div style="font-weight:800; letter-spacing:-.02em">About this contest space</div>
+            <div class="small" style="margin-top:8px">Practice smart with objective coding quizzes, earn CP, and climb the leaderboard.</div>
+          </div>
+          <div class="row">
+            <button class="iconBtn" id="btnInfo" aria-label="Information">i</button>
+          </div>
+        </div>
+
+        <div class="hubStats" style="margin-top:14px">
+          <div class="hubStat"><div class="small">Available Exams</div><div class="hubVal" id="statExams">—</div></div>
+          <div class="hubStat"><div class="small">Total Questions</div><div class="hubVal" id="statQuestions">—</div></div>
+          <div class="hubStat"><div class="small">Your CP</div><div class="hubVal" id="statCp">—</div></div>
+        </div>
+
+        <div class="panel" style="margin-top:14px">
+          <div class="small">Quick actions</div>
+          <div class="row" style="margin-top:10px">
+            <a class="btn" href="/leaderboard/leaderboard.html">Leaderboard</a>
+            <a class="btn" href="/bookmarks/bookmarks.html">Bookmarks</a>
+            <a class="btn" href="/notifications/notifications.html">Notifications</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="viewTests" style="display:none">
+        <div class="row" style="justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div class="row">
+            <button class="pillBtn on" id="btnRec">Recommended</button>
+            <button class="pillBtn" id="btnAll">All Tests</button>
+          </div>
+          <div class="row">
+            <button class="btn" id="btnReload">Reload</button>
+          </div>
+        </div>
+        <div class="small" style="margin-top:10px">Recommended tests are picked based on difficulty and freshness to help you build consistency.</div>
+        <div class="examGrid" id="examGrid" style="margin-top:14px"></div>
+      </div>
+
+      <div class="panel" id="viewAnn" style="display:none">
+        <div class="small">Latest announcements</div>
+        <div class="annList" id="annList" style="margin-top:12px"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="drawerBackdrop" id="refineBack" aria-hidden="true">
+    <aside class="drawer" role="dialog" aria-modal="true" aria-label="Refine">
+      <div class="drawerHead">
+        <div style="font-weight:850; letter-spacing:-.02em">Refine Exams</div>
+        <button class="iconBtn" id="btnCloseRefine" aria-label="Close">✕</button>
+      </div>
+      <div class="drawerBody">
+        <div class="field">
+          <div class="label">Search</div>
+          <input class="input" id="fSearch" placeholder="Search by title, subject, or topic…" />
+        </div>
+        <div class="field">
+          <div class="label">Difficulty</div>
+          <select class="select" id="fDifficulty">
+            <option value="">All</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="label">Subject</div>
+          <input class="input" id="fSubject" placeholder="e.g., Algorithms" />
+        </div>
+      </div>
+      <div class="drawerFoot">
+        <button class="btn ghost" id="btnReset">Reset</button>
+        <button class="btn primary" id="btnApply">Apply</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/shared/exams.js"></script>
+  <script type="module" src="/shared/bookmarks.js"></script>
+  <script type="module" src="/shared/inbox.js"></script>
+  <script type="module" src="/hub/hub.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

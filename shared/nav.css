@@ -1,0 +1,236 @@
+.topbar .nav{display:none !important}
+
+:root{--cqcpSideW: 240px}
+
+.cqcpSideToggle{
+  position:fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius2);
+  border: 1px solid var(--stroke);
+  background: var(--card2);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.cqcpSideToggle:hover{background: var(--card3); border-color: var(--stroke2);}
+.cqcpSideToggle:active{background: var(--card);}
+.cqcpSideToggle:focus-visible{outline:none; box-shadow: var(--ring);}
+
+body:has(.cqcpSide):not(.cqcpSideCollapsed) .cqcpSideToggle{left: calc(12px + var(--cqcpSideW) + 12px)}
+body.cqcpSideCollapsed .cqcpSideToggle{left: 12px}
+
+body.cqcpHasSide:not(.cqcpSideCollapsed) .cqcpSideToggle{left: calc(12px + var(--cqcpSideW) + 12px)}
+body.cqcpHasSide.cqcpSideCollapsed .cqcpSideToggle{left: 12px}
+
+.cqcpRightToggle{
+  position:fixed;
+  top: auto;
+  right: 12px;
+  bottom: 12px;
+  z-index: 9999;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius2);
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card3) 90%, transparent), color-mix(in srgb, var(--card2) 80%, transparent));
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  visibility: visible !important;
+  opacity: 1 !important;
+  box-shadow: var(--shadowSoft);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+.cqcpRightToggle:hover{background: var(--card3); border-color: var(--stroke2);}
+.cqcpRightToggle:active{background: var(--card);}
+.cqcpRightToggle:focus-visible{outline:none; box-shadow: var(--ring);}
+
+.cqcpRight{
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  width: 320px;
+  z-index: 9997;
+  background: color-mix(in srgb, var(--bg1) 86%, transparent);
+  border-left: 1px solid var(--stroke);
+  transform: translateX(0);
+  transition: transform .2s ease;
+  box-shadow: -12px 0 30px rgba(0,0,0,.35);
+  backdrop-filter: blur(16px) saturate(170%);
+}
+body.cqcpRightCollapsed .cqcpRight{transform: translateX(320px);}
+
+.cqcpRightInner{padding: 16px; height: 100%; overflow:auto;}
+.cqcpRightTitle{font-weight:700; font-size: 14px; color: var(--text); margin-bottom: 12px;}
+
+.cqcpRightCard{padding: 12px; border-radius: var(--radius2); border: 1px solid color-mix(in srgb, var(--stroke) 85%, transparent); background: linear-gradient(180deg, color-mix(in srgb, var(--card3) 90%, transparent), color-mix(in srgb, var(--card2) 82%, transparent)); margin-bottom: 12px; box-shadow: var(--shadowSoft);}
+.cqcpRightCardTitle{font-weight:600; font-size: 13px; color: var(--text); margin-bottom: 10px;}
+.cqcpRightRow{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+.cqcpRightBtn{width:36px; height:36px; border-radius: var(--radius); border:1px solid var(--stroke); background: var(--card); color: var(--text); font-family: var(--mono); font-weight:800; font-size:18px; cursor:pointer; transition: background .15s, border-color .15s;}
+.cqcpRightBtn:hover{background: var(--card2); border-color: var(--stroke2);}
+.cqcpRightValue{min-width: 72px; text-align:center; font-weight:600; color: var(--text); font-size: 13px;}
+.cqcpRightSelect{width:100%; border-radius: var(--radius2); border: 1px solid var(--stroke); background: var(--bg2); color: var(--text); padding: 10px 10px; font-size: 13px; appearance: none; -webkit-appearance: none; color-scheme: dark;}
+.cqcpRightSelect option{background: var(--bg1); color: var(--text);}
+.cqcpRightSelect:focus-visible{outline:none; box-shadow: var(--ring);}
+.cqcpRightHint{margin-top: 8px; font-size: 12px; color: var(--muted2);}
+
+.cqcpSide{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  width: var(--cqcpSideW);
+  z-index: 9998;
+  background: var(--bg1);
+  border-right: 1px solid var(--stroke);
+  display:flex;
+  flex-direction:column;
+  transition: transform .2s ease;
+}
+
+body.cqcpSideCollapsed .cqcpSide{transform: translateX(calc(-1 * var(--cqcpSideW)));}
+
+.cqcpSideTop{padding:16px; flex:1; min-height:0; overflow:auto;}
+
+.cqcpSideBrand{padding: 12px; border-radius: var(--radius2); border: 1px solid var(--stroke); background: var(--card2); margin-bottom: 12px;}
+.cqcpSideTitle{font-weight:600; font-size: 14px; color: var(--text);}
+.cqcpSideSub{margin-top:4px; font-size: 12px; color: var(--muted2);}
+
+.cqcpSidePrimary{display:flex; gap:8px; margin-bottom: 12px;}
+.cqcpSideLink{display:block; text-decoration:none; color: var(--muted); padding: 8px; border-radius: var(--radius); border: 1px solid var(--stroke); background: var(--card2); font-weight:500; transition: background .15s, border-color .15s, color .15s; text-align:center;}
+.cqcpSideLink:hover{background: var(--card3); border-color: var(--stroke2); color: var(--text);}
+.cqcpSideLink.on{background: var(--brand); border-color: var(--brand); color: #000;}
+.cqcpSideLinkCRUD{font-family: var(--mono); font-size: 16px; font-weight: 600; padding: 10px 8px;}
+.cqcpSideLink--create{border-color: var(--ok); background: var(--card2); color: var(--ok);}
+.cqcpSideLink--create:hover{background: var(--ok); color: #000;}
+.cqcpSideLink--read{border-color: var(--warn); background: var(--card2); color: var(--warn);}
+.cqcpSideLink--read:hover{background: var(--warn); color: #000;}
+.cqcpSideLink--update{border-color: #3B82F6; background: var(--card2); color: #3B82F6;}
+.cqcpSideLink--update:hover{background: #3B82F6; color: #000;}
+.cqcpSideLink--delete{border-color: var(--bad); background: var(--card2); color: var(--bad);}
+.cqcpSideLink--delete:hover{background: var(--bad); color: #000;}
+
+.cqcpSideZoom{display:flex; align-items:center; justify-content:space-between; gap:8px; padding: 8px 12px; border-radius: var(--radius2); border: 1px solid var(--stroke); background: var(--card2); margin-bottom: 12px;}
+.cqcpSideZoomLabel{font-weight:500; color: var(--text); font-size:13px;}
+.cqcpSideZoomBtns{display:flex; gap:6px; align-items:center}
+.cqcpSideZoomBtn{width:32px; height:32px; border-radius: var(--radius); border:1px solid var(--stroke); background: var(--card); color: var(--text); font-family: var(--mono); font-weight:600; font-size:16px; cursor:pointer; transition: background .15s, border-color .15s;}
+.cqcpSideZoomBtn:hover{background: var(--card2); border-color: var(--stroke2);}
+.cqcpSideZoomBtn:active{background: var(--card3);}
+
+.cqcpSideBottom{
+  padding: 12px;
+  border-top: 1px solid var(--stroke);
+  background: var(--card2);
+  display:grid;
+  gap:6px;
+  flex: 0 0 auto;
+}
+.cqcpSideOption{display:flex; align-items:center; gap:8px; text-decoration:none; color: var(--muted); padding: 8px 10px; border-radius: var(--radius); border: 1px solid var(--stroke); background: var(--card); transition: background .15s, border-color .15s, color .15s;}
+.cqcpSideOption:hover{background: var(--card2); border-color: var(--stroke2); color: var(--text);}
+.cqcpSideOptionIcon{width:18px; display:inline-flex; align-items:center; justify-content:center; font-size:14px;}
+.cqcpSideOptionText{font-weight:500; font-size:13px;}
+
+.cqcpSideOptionBtn{
+  width:100%;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  transition: background .15s, border-color .15s, color .15s;
+}
+.cqcpSideOptionBtn:hover{background: var(--card2); border-color: var(--stroke2); color: var(--text);}
+
+body{padding-left: 0}
+body .container{transition: padding-left .2s ease, padding-right .2s ease}
+body #statusPill{margin-left: 0}
+
+body.cqcpHasSide .container{padding-left: calc(20px + var(--cqcpSideW) + 20px)}
+body.cqcpHasSide .topbar{padding-left: calc(12px + var(--cqcpSideW) + 12px)}
+
+body.cqcpHasRight:not(.cqcpRightCollapsed) .container{padding-right: 340px}
+body.cqcpHasRight:not(.cqcpRightCollapsed) .topbar{padding-right: 340px}
+
+body.cqcpHasSide.cqcpSideCollapsed .container{padding-left: 20px}
+body.cqcpHasSide.cqcpSideCollapsed .topbar{padding-left: 12px}
+
+body.cqcpHasRight.cqcpRightCollapsed .container{padding-right: 20px}
+body.cqcpHasRight.cqcpRightCollapsed .topbar{padding-right: 12px}
+
+/* CP chip inside topbar (no fixed positioning) */
+.cpWidgetChip{
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  z-index: auto;
+  margin-left: 12px;
+  align-self: center;
+}
+
+@media (max-width: 980px){
+  :root{--cqcpSideW: 200px}
+}
+
+.cqcpSettingsBack{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,.60); z-index:90}
+.cqcpSettingsBack.open{display:flex}
+.cqcpSettingsModal{width:min(480px, 92vw); border-radius: var(--radius3); background: var(--bg1); border: 1px solid var(--stroke); overflow:hidden}
+.cqcpSettingsHead{padding: 16px; display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--stroke);}
+.cqcpSettingsBody{padding: 16px}
+.cqcpSettingsGrid{display:grid; grid-template-columns: 1fr; gap:12px}
+.cqcpSwatchRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+.cqcpSwatch{width:36px; height:36px; border-radius: var(--radius2); border: 1px solid var(--stroke); cursor:pointer; transition: transform .15s, border-color .15s;}
+.cqcpSwatch:hover{transform: scale(1.05); border-color: var(--stroke2);}
+
+/* Safety: prevent the CP drawer/backdrop from blocking clicks on pages that don't load shared/level.css */
+.cpWidgetBackdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cpWidgetBackdrop.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cpWidgetDrawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(420px, 92vw);
+  z-index: 121;
+  transform: translateX(110%);
+}
+
+.cpWidgetDrawer.show{
+  transform: translateX(0);
+}

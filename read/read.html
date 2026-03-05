@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Read • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/read/read.css" />
+</head>
+<body class="page-read">
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub">Create. Curate. Compete.</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/create/create.html">Create</a>
+      <a class="navLink" href="/read/read.html">Read</a>
+      <a class="navLink" href="/update/update.html">Update</a>
+      <a class="navLink" href="/delete/delete.html">Delete</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="/about/about.html">About</a>
+      <a class="navLink" href="/contact/contact.html">Contact</a>
+      <a class="navLink" href="/refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Browse Exams</h1>
+        <div class="pageSub">Select an exam to view its framed questions (read-only) and play them in the quiz player.</div>
+      </div>
+      <div class="row">
+        <a class="btn" href="/create/create.html">+ New Exam</a>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike">
+        <div class="row" style="justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div>
+            <div style="font-weight:700; letter-spacing:-.02em">Exams</div>
+            <div class="small" style="margin-top:6px">Click an exam card to open its question bank.</div>
+          </div>
+          <div class="row">
+            <button class="btn" id="btnRefresh">Refresh</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="padding:0; border:none; background:transparent">
+        <div class="examGrid" id="examGrid"></div>
+      </div>
+
+      <div class="panel cardlike" id="examHead" style="display:none">
+        <div class="row" style="justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div>
+            <div style="font-weight:720; letter-spacing:-.02em" id="examTitle">Exam</div>
+            <div class="small" id="examMeta" style="margin-top:6px"></div>
+          </div>
+          <div class="row">
+            <a class="btn primary" id="btnStart" href="/play/play.html">Start Contest</a>
+            <a class="btn" id="btnResults" href="/results/results.html">Results</a>
+            <a class="btn ghost" id="btnManage" href="/update/update.html">Manage</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike" id="filtersPanel" style="display:none">
+        <div class="filters">
+          <div class="field">
+            <div class="label">Search</div>
+            <input class="input" id="search" placeholder="Search by title or prompt…" />
+          </div>
+          <div class="field">
+            <div class="label">Type</div>
+            <select class="select" id="type"></select>
+          </div>
+          <div class="field">
+            <div class="label">Difficulty</div>
+            <select class="select" id="difficulty"></select>
+          </div>
+          <div class="field">
+            <div class="label">Sort</div>
+            <select class="select" id="sort">
+              <option value="new">Newest</option>
+              <option value="old">Oldest</option>
+              <option value="title">Title</option>
+            </select>
+          </div>
+          <div class="row" style="align-items:end">
+            <button class="btn ghost" id="btnClear">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="padding:0; border:none; background:transparent">
+        <div class="qGrid" id="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="dialogBackdrop" id="playerBackdrop" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-modal="true" aria-label="Quiz player">
+      <div class="dialogHeader">
+        <div class="dialogTitle">Quiz Player</div>
+        <div class="spacer"></div>
+        <span class="kbd">Esc</span>
+      </div>
+      <div class="dialogBody" id="playerBody"></div>
+    </div>
+  </div>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/shared/exams.js"></script>
+  <script type="module" src="/shared/questions.js"></script>
+  <script type="module" src="/read/read.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

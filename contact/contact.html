@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/contact/contact.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Contact Us</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/read/read.html">Exams</a>
+      <a class="navLink" href="/create/create.html">Create</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="/about/about.html">About</a>
+      <a class="navLink" href="/contact/contact.html">Contact</a>
+      <a class="navLink" href="/refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="contactWrap">
+      <div class="contactInfo card">
+        <h2 class="sectionTitle">Get in Touch</h2>
+        <p class="contactPara">Need help with exams, contests, CP points, leaderboard, or anything on Coding Quiz Contest? Send a message and we’ll help you get back to practicing and competing.</p>
+        <div class="infoRows">
+          <div class="infoRow">
+            <div class="infoLabel">Email</div>
+            <div class="infoVal">anjtime101@gmail.com</div>
+          </div>
+          <div class="infoRow">
+            <div class="infoLabel">Response Time</div>
+            <div class="infoVal">Usually within 24 hours</div>
+          </div>
+          <div class="infoRow">
+            <div class="infoLabel">Social</div>
+            <div class="infoVal">
+              <a href="#" class="miniLink">Twitter</a> •
+              <a href="#" class="miniLink">GitHub</a> •
+              <a href="#" class="miniLink">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contactForm card" id="contactForm">
+        <h3 class="formTitle">Send us a message</h3>
+        <div class="formGroup">
+          <label class="formLabel" for="name">Your Name</label>
+          <input class="input" type="text" id="name" name="name" placeholder="Jane Doe" required />
+        </div>
+        <div class="formGroup">
+          <label class="formLabel" for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="formGroup">
+          <label class="formLabel" for="subject">Subject</label>
+          <select class="select" id="subject" name="subject" required>
+            <option value="">Select a topic</option>
+            <option value="exam">Exam / Quiz Issue</option>
+            <option value="contest">Contest Issue</option>
+            <option value="cp">CP / Level / Rank</option>
+            <option value="bug">Bug Report</option>
+            <option value="feature">Feature Request</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="formGroup">
+          <label class="formLabel" for="message">Message</label>
+          <textarea class="textarea" id="message" name="message" rows="6" placeholder="Include the page (Exams/Contests/Leaderboard), what you expected, and what happened…" required></textarea>
+        </div>
+        <div class="formActions">
+          <button type="submit" class="btn primary">Send Message</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="faq card">
+      <h2 class="sectionTitle">Frequently Asked Questions</h2>
+      <div class="faqItem">
+        <div class="faqQ">How do I report an issue with an exam or contest?</div>
+        <div class="faqA">Use the form above and pick “Exam / Quiz Issue” or “Contest Issue”. Share the quiz/contest name and what went wrong.</div>
+      </div>
+      <div class="faqItem">
+        <div class="faqQ">My CP / rank looks wrong—what should I send?</div>
+        <div class="faqA">Select “CP / Level / Rank” and include the page you were on and what changed. A screenshot helps.</div>
+      </div>
+      <div class="faqItem">
+        <div class="faqQ">Can I request new quizzes, topics, or contests?</div>
+        <div class="faqA">Yes—choose “Feature Request” and tell us the topic, difficulty, and what you want to practice.</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/contact/contact.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contests • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/contests/contests.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub">Contests • Past, Live & Upcoming</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/read/read.html">Read</a>
+      <a class="navLink" href="/testseries/testseries.html">Coders Tester</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="/about/about.html">About</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Contests</h1>
+        <div class="pageSub">Filter by time, code, name, duration, and participants. View Past / Live / Upcoming in a table layout.</div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike contestsFilters">
+        <div class="filtersTop">
+          <div class="filtersTabs" role="tablist" aria-label="Contest status">
+            <button class="filterTab on" type="button" data-status="all">All</button>
+            <button class="filterTab" type="button" data-status="live">Live</button>
+            <button class="filterTab" type="button" data-status="upcoming">Upcoming</button>
+            <button class="filterTab" type="button" data-status="past">Past</button>
+          </div>
+          <button class="btn" type="button" id="btnResetFilters">Reset Filters</button>
+        </div>
+
+        <div class="filtersGrid">
+          <div class="field">
+            <div class="label">Contest Code</div>
+            <input class="input" id="fCode" placeholder="e.g., CQC_MAR_01" />
+          </div>
+          <div class="field">
+            <div class="label">Contest Name</div>
+            <input class="input" id="fName" placeholder="e.g., Weekly DSA Challenge" />
+          </div>
+
+          <div class="field">
+            <div class="label">Year</div>
+            <select class="select" id="fYear"></select>
+          </div>
+          <div class="field">
+            <div class="label">Month</div>
+            <select class="select" id="fMonth"></select>
+          </div>
+          <div class="field">
+            <div class="label">Day</div>
+            <select class="select" id="fDay"></select>
+          </div>
+          <div class="field">
+            <div class="label">Hour</div>
+            <select class="select" id="fHour"></select>
+          </div>
+          <div class="field">
+            <div class="label">Minute</div>
+            <select class="select" id="fMinute"></select>
+          </div>
+          <div class="field">
+            <div class="label">Second</div>
+            <select class="select" id="fSecond"></select>
+          </div>
+
+          <div class="field">
+            <div class="label">Min Duration (min)</div>
+            <input class="input" id="fMinDur" type="number" min="0" step="5" placeholder="0" />
+          </div>
+          <div class="field">
+            <div class="label">Max Duration (min)</div>
+            <input class="input" id="fMaxDur" type="number" min="0" step="5" placeholder="240" />
+          </div>
+          <div class="field">
+            <div class="label">Min Participants</div>
+            <input class="input" id="fMinPart" type="number" min="0" step="50" placeholder="0" />
+          </div>
+          <div class="field">
+            <div class="label">Max Participants</div>
+            <input class="input" id="fMaxPart" type="number" min="0" step="50" placeholder="100000" />
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike">
+        <div class="contestsTableWrap">
+          <table class="contestsTable" aria-label="Contests table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Participants</th>
+              </tr>
+            </thead>
+            <tbody id="contestsTbody"></tbody>
+          </table>
+        </div>
+        <div class="small" id="contestsCount" style="margin-top:10px"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/contests/contests.js"></script>
+</body>
+</html>
