@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/about/about.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">About Us</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/read/read.html">Exams</a>
+      <a class="navLink" href="/create/create.html">Create</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="/about/about.html">About</a>
+      <a class="navLink" href="/contact/contact.html">Contact</a>
+      <a class="navLink" href="/refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div>
+        <h1 class="heroTitle">Practice coding. Compete in contests. Track your progress.</h1>
+        <p class="heroSub">Coding Quiz Contest is a focused platform for coding quizzes, timed contests, and skill-building practice. Attempt exams, earn CP (Code Points), and climb the leaderboard—everything designed for consistent improvement.</p>
+      </div>
+      <div class="heroActions">
+        <a class="btn primary" href="/read/read.html">Explore Exams</a>
+        <a class="btn ghost" href="/refer/refer.html">Invite Friends</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature card">
+        <div class="featureIcon">📚</div>
+        <div>
+          <div class="featureTitle">Exam-Style Quizzes</div>
+          <div class="featureDesc">Solve coding MCQs and quiz sets built for interview prep, fundamentals, and topic practice.</div>
+        </div>
+      </div>
+      <div class="feature card">
+        <div class="featureIcon">🏆</div>
+        <div>
+          <div class="featureTitle">CP, Levels & Leaderboard</div>
+          <div class="featureDesc">Earn CP for attempts and milestones, level up, and see where you stand in the leaderboard.</div>
+        </div>
+      </div>
+      <div class="feature card">
+        <div class="featureIcon">📊</div>
+        <div>
+          <div class="featureTitle">Results You Can Learn From</div>
+          <div class="featureDesc">Review score breakdowns and results so you can identify weak areas and improve faster.</div>
+        </div>
+      </div>
+      <div class="feature card">
+        <div class="featureIcon">🔄</div>
+        <div>
+          <div class="featureTitle">Reattempt for Mastery</div>
+          <div class="featureDesc">Reattempt quizzes and contest sets to practice more and strengthen concepts over time.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story card">
+      <h2 class="sectionTitle">Our Story</h2>
+      <p class="storyPara">Coding Quiz Contest began with a simple goal: create a single place where learners can practice coding concepts, participate in contests, and measure progress with clear scoring and CP rewards. Instead of jumping between scattered resources, you get exams, contests, results, and leaderboard in one flow.</p>
+      <p class="storyPara">Our focus is clarity and consistency—structured quizzes, smooth navigation, and a gamified progress system that keeps you coming back to improve every day.</p>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/about/about.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

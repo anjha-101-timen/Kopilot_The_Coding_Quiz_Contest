@@ -1,0 +1,31 @@
+.contactWrap{display:grid; grid-template-columns: 1fr 1.4fr; gap: 16px; margin-bottom: 14px}
+.contactInfo{padding: 20px; border-radius: 24px; border:1px solid var(--stroke);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowGlow), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.sectionTitle{font-weight: 850; letter-spacing:-.03em; font-size: 20px}
+.contactPara{margin-top:12px; color: rgba(234,240,255,.72); font-size: 14px; line-height:1.55}
+.infoRows{margin-top:16px}
+.infoRow{display:flex; justify-content:space-between; align-items:center; padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, var(--stroke) 65%, transparent)}
+.infoRow:last-child{border-bottom: none}
+.infoLabel{font-weight: 600; font-size: 13px; color: rgba(234,240,255,.64)}
+.infoVal{font-size: 13px; color: rgba(234,240,255,.88)}
+
+.contactForm{padding: 20px; border-radius: 24px; border:1px solid var(--stroke);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowGlow), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.formTitle{font-weight: 750; letter-spacing:-.02em; font-size: 18px}
+.formGroup{margin-top:16px}
+.formLabel{display:block; margin-bottom:6px; font-weight: 600; font-size: 13px; color: rgba(234,240,255,.78)}
+.textarea{resize: vertical; min-height: 100px}
+.formActions{margin-top:20px; display:flex; gap:10px; flex-wrap:wrap}
+
+.faq{padding: 20px; border-radius: 24px; border:1px solid var(--stroke);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowSoft), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.faqItem{margin-top:16px}
+.faqQ{font-weight: 700; font-size: 14px; color: rgba(234,240,255,.88)}
+.faqA{margin-top:6px; color: rgba(234,240,255,.64); font-size: 13px; line-height:1.5}
+
+@media (max-width: 780px){
+  .contactWrap{grid-template-columns: 1fr;}
+}

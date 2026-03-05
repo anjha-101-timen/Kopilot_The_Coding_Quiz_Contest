@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contest Hub • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/contest/contest.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Contest Hub — Past, Current & Future</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/create/create.html">Create</a>
+      <a class="navLink" href="/read/read.html">Read</a>
+      <a class="navLink" href="/update/update.html">Update</a>
+      <a class="navLink" href="/delete/delete.html">Delete</a>
+      <a class="navLink" href="/contest/contest.html">Contest Hub</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="/about/about.html">About</a>
+      <a class="navLink" href="/contact/contact.html">Contact</a>
+      <a class="navLink" href="/refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Contest Hub</h1>
+        <div class="pageSub">Browse past, current, and upcoming contests. Filter by date/time, code, name, duration, participants, and more.</div>
+      </div>
+      <div class="row">
+        <button class="btn" id="btnRefresh">Refresh</button>
+        <button class="btn primary" id="btnCreate">Create Contest</button>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike" id="filters">
+        <div class="row" style="justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center">
+          <div class="row" style="gap:12px; flex-wrap:wrap; align-items:center">
+            <div class="field" style="margin:0">
+              <div class="label">Search</div>
+              <input class="input" id="searchInput" placeholder="Contest code or name…" />
+            </div>
+            <div class="field" style="margin:0">
+              <div class="label">Status</div>
+              <select class="input" id="statusFilter">
+                <option value="">All</option>
+                <option value="future">Future</option>
+                <option value="current">Current</option>
+                <option value="past">Past</option>
+              </select>
+            </div>
+            <div class="field" style="margin:0">
+              <div class="label">From Date</div>
+              <input class="input" type="datetime-local" id="dateFrom" />
+            </div>
+            <div class="field" style="margin:0">
+              <div class="label">To Date</div>
+              <input class="input" type="datetime-local" id="dateTo" />
+            </div>
+            <div class="field" style="margin:0">
+              <div class="label">Duration (min)</div>
+              <input class="input" type="number" id="durationMin" placeholder="Min" min="0" />
+            </div>
+            <div class="field" style="margin:0">
+              <div class="label">Duration (max)</div>
+              <input class="input" type="number" id="durationMax" placeholder="Max" min="0" />
+            </div>
+          </div>
+          <div class="row" style="align-items:end">
+            <button class="btn ghost" id="btnApply">Apply</button>
+            <button class="btn ghost" id="btnReset">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike" id="empty" style="display:none">
+        <div style="font-weight:750; letter-spacing:-.02em">No contests found</div>
+        <div class="small" style="margin-top:8px">Try adjusting your filters or check back later for new contests.</div>
+      </div>
+
+      <div class="panel" style="padding:0; border:none; background:transparent">
+        <div class="contestTableWrapper">
+          <table class="contestTable" id="contestTable">
+            <thead>
+              <tr>
+                <th data-sort="code">Contest Code</th>
+                <th data-sort="name">Contest Name</th>
+                <th data-sort="status">Status</th>
+                <th data-sort="start">Start Time</th>
+                <th data-sort="end">End Time</th>
+                <th data-sort="duration">Duration</th>
+                <th data-sort="participants">Participants</th>
+                <th data-sort="difficulty">Difficulty</th>
+                <th data-sort="prize">Prize Pool</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="contestTableBody">
+              <!-- Rows will be populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/contest/contest.js"></script>
+</body>
+</html>

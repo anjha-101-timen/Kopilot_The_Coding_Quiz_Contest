@@ -1,0 +1,90 @@
+.lbShell{padding:22px}
+
+.lbInfo{
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+  color: rgba(248,250,252,.88);
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: var(--mono);
+  font-weight: 900;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.lbInfo:hover{transform: translateY(-1px); background: linear-gradient(145deg, var(--card3), var(--card2), var(--card)); border-color: var(--stroke2)}
+
+.lbHero{
+  padding: 18px;
+  border-radius: 22px;
+  border:1px solid var(--stroke);
+  background: radial-gradient(900px 550px at 50% 20%, color-mix(in srgb, var(--brand) 22%, transparent), color-mix(in srgb, var(--brand2) 10%, transparent) 55%, transparent 72%), linear-gradient(145deg, var(--card2), var(--card), var(--card2));
+  box-shadow: var(--shadowGlow), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.lbHeroTitle{font-size: 28px; font-weight: 900; letter-spacing: -.03em}
+.lbHeroSub{margin-top: 8px; color: rgba(248,250,252,.72); line-height: 1.6}
+
+.lbLocked{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 14px;
+  padding: 16px;
+  margin-top: 14px;
+  border-radius: 20px;
+  border:1px solid color-mix(in srgb, var(--warn) 28%, transparent);
+  background: color-mix(in srgb, var(--warn) 10%, transparent);
+}
+
+.lbLockBadge{
+  width: 46px;
+  height: 46px;
+  border-radius: 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--stroke);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+  font-size: 20px;
+}
+
+.lbCardRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; align-items:center}
+
+.lbList{margin-top: 18px}
+
+.lbRow{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 20px;
+  border:1px solid var(--stroke);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2));
+  box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06);
+  margin-top: 10px;
+}
+
+.lbLeft{display:flex; align-items:center; gap: 12px; min-width: 0}
+.lbRank{
+  width: 34px;
+  height: 34px;
+  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: var(--mono);
+  font-weight: 900;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+}
+
+.lbName{font-weight: 800; letter-spacing: -.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.lbMeta{color: rgba(248,250,252,.62); font-size: 12px; margin-top: 3px}
+
+.lbRight{display:flex; gap: 10px; align-items:center}
+.lbKbd{padding: 8px 10px; border-radius: 14px; border:1px solid var(--stroke); background: color-mix(in srgb, var(--card) 65%, rgba(0,0,0,.18)); font-family: var(--mono); font-size: 12px}

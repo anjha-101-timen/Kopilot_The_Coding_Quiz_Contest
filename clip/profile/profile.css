@@ -1,0 +1,7 @@
+.profileGrid{display:grid; grid-template-columns: 96px 1fr; gap:16px; align-items:start}
+.avatar{width:96px; height:96px; border-radius: 26px; display:flex; align-items:center; justify-content:center; font-weight:800; letter-spacing:-.03em; background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 35%, transparent), color-mix(in srgb, var(--brand2) 22%, transparent)); border: 1px solid var(--stroke); box-shadow: var(--shadowGlow), 0 18px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08)}
+.statRow{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px; margin-top:14px}
+.statCard{padding:14px; border-radius: 22px; background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); border: 1px solid var(--stroke); box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06)}
+.statValue{font-weight:800; letter-spacing:-.03em; font-size: 22px; margin-top:8px}
+@media (max-width: 900px){.statRow{grid-template-columns: repeat(2, minmax(0,1fr));} }
+@media (max-width: 620px){.profileGrid{grid-template-columns: 1fr;}.avatar{width:72px; height:72px; border-radius: 22px;} }

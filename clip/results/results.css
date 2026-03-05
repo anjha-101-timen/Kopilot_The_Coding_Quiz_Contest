@@ -1,0 +1,102 @@
+.resHead{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; padding: 14px; border-radius: 24px; border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowGlow), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.resTitle{margin-top:10px; font-weight: 850; letter-spacing:-.04em; font-size: 22px}
+.resMeta{margin-top:8px; color: rgba(234,240,255,.64); font-size: 12px}
+.resActions{display:flex; gap: 12px; align-items:flex-end; flex-wrap:wrap; justify-content:flex-end}
+
+#cpChip{border-color: color-mix(in srgb, var(--brand2) 35%, transparent)}
+
+.resShell{margin-top: 12px}
+.resMain{display:grid; gap: 12px}
+.resBlock{position: relative; overflow:hidden}
+.resBlockHead{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.resBlockTitle{font-weight: 780; letter-spacing:-.03em}
+
+.scoreCard{margin-top:10px; padding: 14px; border-radius: 24px; border: 1px solid var(--glass-read-border);
+  background: linear-gradient(135deg, var(--glass-read), rgba(245,158,11,.08));
+  box-shadow: var(--glass-read-shadow), var(--shadowSoft);
+  backdrop-filter: blur(16px) saturate(160%);
+  display:flex; align-items:flex-end; justify-content:space-between; gap: 12px; flex-wrap:wrap;
+}
+.scoreLabel{font-size:12px; color: rgba(248,250,252,.70); letter-spacing:.08em; font-weight:800}
+.scoreValue{margin-top:6px; font-weight: 900; letter-spacing:-.05em; font-size: 34px}
+.scoreMax{opacity:.7; font-weight:750; font-size: 16px; margin-left:6px}
+.scoreHint{font-size:12px; color: rgba(248,250,252,.70)}
+
+.progressGrid{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 12px}
+.progCard{padding: 12px 14px; border-radius: 22px; border: 1px solid rgba(255,255,255,.12);
+  background: color-mix(in srgb, var(--card) 70%, rgba(0,0,0,.18));
+  box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+.progTop{display:flex; align-items:center; justify-content:space-between; gap:10px; font-weight:700; letter-spacing:-.01em}
+.progSub{margin-top:8px; font-size:12px; color: rgba(234,240,255,.62)}
+.progCard.ok{border-color: rgba(16,185,129,.35); background: linear-gradient(135deg, rgba(16,185,129,.10), rgba(16,185,129,.05));}
+.progCard.bad{border-color: rgba(239,68,68,.35); background: linear-gradient(135deg, rgba(239,68,68,.10), rgba(239,68,68,.05));}
+.progCard.warn{border-color: rgba(245,158,11,.35); background: linear-gradient(135deg, rgba(245,158,11,.10), rgba(245,158,11,.05));}
+
+.bar{height:10px; border-radius: 999px; background: color-mix(in srgb, var(--stroke2) 35%, transparent); overflow:hidden; margin-top:10px; border:1px solid var(--stroke)}
+.bar span{display:block; height:100%; width:0%; background: linear-gradient(90deg, rgba(245,158,11,.95), rgba(34,211,238,.55)); border-radius:999px; transition: width .45s cubic-bezier(0.16,1,0.3,1)}
+.progCard.ok .bar span{background: linear-gradient(90deg, rgba(16,185,129,.95), rgba(34,211,238,.55));}
+.progCard.bad .bar span{background: linear-gradient(90deg, rgba(239,68,68,.95), rgba(245,158,11,.55));}
+.progCard.warn .bar span{background: linear-gradient(90deg, rgba(245,158,11,.95), rgba(236,72,153,.45));}
+
+.chart{margin-top:10px; width:100%; height:auto; display:block}
+
+.cmpGrid{margin-top:12px; display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px}
+.cmpGridItem{padding: 12px 14px; border-radius: 22px; border: 1px solid rgba(255,255,255,.12);
+  background: color-mix(in srgb, var(--card) 70%, rgba(0,0,0,.18));
+  box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.chartHost{width:100%}
+.cmpTitle{display:flex; align-items:center; justify-content:space-between; gap:10px}
+.cmpTitle .small{margin:0}
+
+.cmpStats{margin-top:10px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px}
+.cmpStat{padding: 10px 12px; border-radius: 18px; border:1px solid var(--stroke);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+}
+.cmpStat .k{font-size:11px; color: rgba(234,240,255,.58)}
+.cmpStat .v{margin-top:6px; font-family: var(--mono); font-weight: 800}
+
+.qBlock{margin-top:10px}
+.qBlockTitle{margin-top:14px; font-weight: 780; letter-spacing:-.02em}
+.qGrid2{margin-top:10px; display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px}
+.qCard{padding: 12px 14px; border-radius: 22px; border:1px solid rgba(255,255,255,.12);
+  background: color-mix(in srgb, var(--card) 70%, rgba(0,0,0,.18));
+  box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.tbl{width:100%; border-collapse:separate; border-spacing:0; margin-top:10px; overflow:hidden; border-radius: 18px; border:1px solid var(--stroke)}
+.tbl th,.tbl td{padding: 10px 10px; text-align:left; font-size: 12px}
+.tbl th{font-weight:800; color: rgba(234,240,255,.70); background: color-mix(in srgb, var(--card2) 85%, rgba(255,255,255,.06)); border-bottom: 1px solid var(--stroke)}
+.tbl td{color: rgba(234,240,255,.72); border-bottom: 1px solid color-mix(in srgb, var(--stroke) 55%, transparent)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .mono{font-family: var(--mono)}
+
+@media (max-width: 980px){
+  .qGrid2{grid-template-columns: 1fr}
+}
+
+.statusGrid{display:grid; grid-template-columns: repeat(13, minmax(0,1fr)); gap: 8px; margin-top: 10px}
+.statusItem{border-radius: 14px; border:1px solid var(--stroke); background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+  padding: 10px 0; text-align:center; transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+.statusItem:hover{transform: translateY(-1px); background: linear-gradient(145deg, var(--card3), var(--card2), var(--card)); border-color: var(--stroke2)}
+.statusItem.sOk{border-color: rgba(16,185,129,.40); background: rgba(16,185,129,.12)}
+.statusItem.sBad{border-color: rgba(239,68,68,.40); background: rgba(239,68,68,.12)}
+.statusItem.sSkip{border-color: rgba(245,158,11,.38); background: rgba(245,158,11,.10)}
+.statusNum{font-family: var(--mono); font-weight:800; font-size: 12px}
+
+@media (max-width: 980px){
+  .resHead{align-items:flex-start}
+  .progressGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .statusGrid{grid-template-columns: repeat(10, minmax(0,1fr));}
+  .cmpGrid{grid-template-columns: 1fr}
+}
+@media (max-width: 560px){
+  .progressGrid{grid-template-columns: 1fr;}
+  .statusGrid{grid-template-columns: repeat(6, minmax(0,1fr));}
+  .cmpStats{grid-template-columns: 1fr}
+}

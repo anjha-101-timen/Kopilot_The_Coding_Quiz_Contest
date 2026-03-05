@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Languages • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="/shared/base.css" />
+  <link rel="stylesheet" href="/shared/level.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/page.css" />
+  <link rel="stylesheet" href="/languages/languages.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub">Languages • Pick your preferred UI language</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="/index.html">Home</a>
+      <a class="navLink" href="/read/read.html">Read</a>
+      <a class="navLink" href="/contests/contests.html">Contests</a>
+      <a class="navLink" href="/leaderboard/leaderboard.html">Leaderboard</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Ready</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Language Selection</h1>
+        <div class="pageSub">Search and pick from Indian Scheduled Languages and major world languages. Changes apply instantly across the website.</div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike langHero">
+        <div class="langSearchRow">
+          <div class="field langSearch">
+            <div class="label">Search language</div>
+            <input class="input" id="langSearch" placeholder="Type: Hindi, Bengali, Spanish…" />
+          </div>
+          <div class="langActive">
+            <div class="langActiveLabel">Active</div>
+            <div class="langActiveValue" id="activeLang">English</div>
+          </div>
+        </div>
+        <div class="langQuick">
+          <button class="langChip" type="button" data-code="en">English</button>
+          <button class="langChip" type="button" data-code="hi">Hindi</button>
+          <button class="langChip" type="button" data-code="bn">Bengali</button>
+          <button class="langChip" type="button" data-code="ta">Tamil</button>
+          <button class="langChip" type="button" data-code="te">Telugu</button>
+          <button class="langChip" type="button" data-code="ur">Urdu</button>
+        </div>
+      </div>
+
+      <div class="panel cardlike">
+        <div class="langSections" id="langSections"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="/shared/firebase.js"></script>
+  <script type="module" src="/shared/ui.js"></script>
+  <script type="module" src="/shared/level.js"></script>
+  <script type="module" src="/shared/theme.js"></script>
+  <script type="module" src="/shared/nav.js"></script>
+  <script type="module" src="/languages/languages.js"></script>
+</body>
+</html>

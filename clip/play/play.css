@@ -1,0 +1,136 @@
+.attemptHead{display:flex; align-items:center; justify-content:space-between; gap:14px; padding: 14px; border-radius: 24px; border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowGlow), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.attemptTitle{font-weight: 780; letter-spacing:-.03em; font-size: 18px}
+.attemptMeta{margin-top:8px; color: rgba(234,240,255,.64); font-size: 12px}
+.attemptRight{display:flex; gap: 12px; align-items:center; flex-wrap:wrap}
+
+.timerBox{padding: 12px 14px; border-radius: 22px; border:1px solid var(--stroke); background: linear-gradient(145deg, color-mix(in srgb, var(--card) 70%, rgba(0,0,0,.18)), color-mix(in srgb, var(--card) 55%, rgba(0,0,0,.22))); min-width: 180px; box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06)}
+.timerLabel{font-size:12px; color: rgba(234,240,255,.56)}
+.timerValue{font-family: var(--mono); font-weight: 700; font-size: 22px; margin-top:6px}
+.timerHint{margin-top:6px; font-size: 11px; color: rgba(234,240,255,.45)}
+
+/* Premium loader for question fetch */
+.premiumLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  gap: 16px;
+  color: var(--textMuted);
+  background: linear-gradient(145deg, var(--card2), var(--card));
+  border-radius: 24px;
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.codeIcon {
+  font-family: var(--mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--brand);
+  animation: codeIconPulse 1.4s ease-in-out infinite;
+}
+.loaderText {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+@keyframes codeIconPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.08); }
+}
+
+.attemptShell{display:grid; grid-template-columns: 320px 1fr; gap: 12px; margin-top: 12px; align-items:start}
+
+.palette{padding: 12px; border-radius: 24px; border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowSoft), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+  position: sticky; top: 92px;
+}
+.palHead{display:grid; gap: 10px; padding: 4px 4px 10px}
+.palTitle{font-weight: 720; letter-spacing:-.02em}
+.palLegend{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.lg{width:10px; height:10px; border-radius: 4px; border:1px solid rgba(255,255,255,.12);}
+.lg.ans{background: rgba(33,215,165,.20); border-color: rgba(33,215,165,.35)}
+.lg.rev{background: rgba(124,92,255,.18); border-color: rgba(124,92,255,.45)}
+.lg.vis{background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16)}
+
+.palGrid{display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 8px; padding: 8px}
+.pBtn{padding: 10px 0; border-radius: 14px; border:1px solid var(--stroke); background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent)); cursor:pointer;
+  transition: transform .14s ease, background .14s ease, border-color .14s ease;
+}
+.pBtn:hover{transform: translateY(-1px); background: linear-gradient(145deg, var(--card3), var(--card2), var(--card)); border-color: var(--stroke2)}
+.pBtn.on{border-color: color-mix(in srgb, var(--brand2) 45%, transparent); background: color-mix(in srgb, var(--brand2) 12%, transparent)}
+.pBtn.vis{background: color-mix(in srgb, var(--card2) 55%, transparent)}
+.pBtn.ans{border-color: color-mix(in srgb, var(--ok) 40%, transparent); background: color-mix(in srgb, var(--ok) 12%, transparent)}
+.pBtn.rev{border-color: color-mix(in srgb, var(--brand) 52%, transparent); background: color-mix(in srgb, var(--brand) 16%, transparent)}
+
+.stage{padding: 14px; border-radius: 24px; border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(145deg, var(--card2), var(--card), var(--card2)); box-shadow: var(--shadowGlow), var(--shadow), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.stageTop{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.stageBody{margin-top: 12px}
+.stageFooter{display:flex; gap:10px; margin-top: 12px; align-items:center; flex-wrap:wrap}
+
+.playerFooter{display:none}
+
+.resultHead{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap}
+.scoreBox{margin-top:10px; padding: 12px 14px; border-radius: 22px; border: 1px solid var(--glass-read-border);
+  background: linear-gradient(135deg, var(--glass-read), rgba(245,158,11,.08));
+  box-shadow: var(--glass-read-shadow), var(--shadowSoft);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+.scoreLabel{font-size:12px; color: rgba(248,250,252,.70); letter-spacing:.08em; font-weight:700}
+.scoreValue{margin-top:6px; font-weight: 850; letter-spacing:-.04em; font-size: 28px}
+.scoreMax{opacity:.7; font-weight:700; font-size: 16px; margin-left:6px}
+
+.attemptPick{min-width: min(260px, 100%)}
+
+.progressGrid{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 14px}
+.progCard{padding: 12px 14px; border-radius: 22px; border: 1px solid rgba(255,255,255,.12);
+  background: color-mix(in srgb, var(--card) 70%, rgba(0,0,0,.18));
+  box-shadow: var(--shadowSoft), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+.progCard.ok{border-color: rgba(16,185,129,.35); background: linear-gradient(135deg, rgba(16,185,129,.10), rgba(16,185,129,.05));}
+.progCard.bad{border-color: rgba(239,68,68,.35); background: linear-gradient(135deg, rgba(239,68,68,.10), rgba(239,68,68,.05));}
+.progCard.warn{border-color: rgba(245,158,11,.35); background: linear-gradient(135deg, rgba(245,158,11,.10), rgba(245,158,11,.05));}
+.progCard.neutral{border-color: var(--stroke); background: linear-gradient(145deg, var(--card2), var(--card), var(--card2));}
+.progTop{display:flex; align-items:center; justify-content:space-between; gap:10px; font-weight:650; letter-spacing:-.01em}
+.bar{height:10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow:hidden; margin-top:10px; border:1px solid rgba(255,255,255,.10)}
+.bar span{display:block; height:100%; width:0%; background: linear-gradient(90deg, rgba(245,158,11,.95), rgba(34,211,238,.55)); border-radius:999px; transition: width .45s cubic-bezier(0.16,1,0.3,1)}
+.progCard.ok .bar span{background: linear-gradient(90deg, rgba(16,185,129,.95), rgba(34,211,238,.55));}
+.progCard.bad .bar span{background: linear-gradient(90deg, rgba(239,68,68,.95), rgba(245,158,11,.55));}
+.progCard.warn .bar span{background: linear-gradient(90deg, rgba(245,158,11,.95), rgba(236,72,153,.45));}
+
+.chartWrap{margin-top: 14px; padding: 12px 14px; border-radius: 22px; border: 1px solid var(--glass-read-border);
+  background: linear-gradient(135deg, var(--glass-read), rgba(245,158,11,.06));
+  box-shadow: var(--glass-read-shadow), var(--shadowSoft);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+.chartTitle{font-weight:750; letter-spacing:-.02em}
+.chart{margin-top:10px; width:100%; height:auto; display:block}
+
+.detailGrid{margin-top: 14px}
+.statusGrid{display:grid; grid-template-columns: repeat(13, minmax(0,1fr)); gap: 8px; margin-top: 10px}
+.statusItem{border-radius: 14px; border:1px solid var(--stroke); background: linear-gradient(145deg, color-mix(in srgb, var(--card2) 70%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+  padding: 10px 0; text-align:center; transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+.statusItem:hover{transform: translateY(-1px); background: linear-gradient(145deg, var(--card3), var(--card2), var(--card)); border-color: var(--stroke2)}
+.statusItem.sOk{border-color: rgba(16,185,129,.40); background: rgba(16,185,129,.12)}
+.statusItem.sBad{border-color: rgba(239,68,68,.40); background: rgba(239,68,68,.12)}
+.statusItem.sSkip{border-color: rgba(245,158,11,.38); background: rgba(245,158,11,.10)}
+.statusNum{font-family: var(--mono); font-weight:700; font-size: 12px}
+
+@media (max-width: 980px){
+  .attemptShell{grid-template-columns: 1fr;}
+  .palette{position:relative; top:auto}
+  .palGrid{grid-template-columns: repeat(8, minmax(0,1fr));}
+  .progressGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .statusGrid{grid-template-columns: repeat(10, minmax(0,1fr));}
+}
+@media (max-width: 520px){
+  .palGrid{grid-template-columns: repeat(6, minmax(0,1fr));}
+  .progressGrid{grid-template-columns: 1fr;}
+  .statusGrid{grid-template-columns: repeat(6, minmax(0,1fr));}
+}
