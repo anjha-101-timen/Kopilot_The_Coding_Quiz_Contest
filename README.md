@@ -4,6 +4,8 @@ A modern, Firebase-powered web platform for **objective coding quizzes**, **topi
 
 Built as part of an academic project by **Team Kopilot**.
 
+**Live Demo (GitHub Pages)**: https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/
+
 ---
 
 ## Highlights
