@@ -1,116 +1,202 @@
-# Coding Quiz Contest Platform (Team Kopilot)
+# Coding Quiz Contest Platform
 
-A modern, Firebase-powered web platform for **objective coding quizzes**, **topic-wise test series**, **CRUD question management**, leaderboards, profiles, referrals, and contest workflows.
+<div align="center">
 
-Built as part of an academic project by **Team Kopilot**.
+### Team Kopilot • Objective Quiz Engine • Test Series • Leaderboards
 
-**Live Demo (GitHub Pages)**: https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/
+<b>Build skills. Earn CP. Climb the leaderboard.</b>
+
+[Live Demo (GitHub Pages)](https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/)
+
+<br/>
+
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-yellow)
+![Firebase](https://img.shields.io/badge/Firebase-Firestore-ffca28)
+![Hosting](https://img.shields.io/badge/Deploy-GitHub%20Pages-black)
+
+</div>
 
 ---
 
-## Highlights
+## What is this?
+
+**Coding Quiz Contest Platform** is a modern, Firebase-powered web app for **objective coding MCQs**, **topic-wise test series**, and a **contest-like practice experience**.
+
+It’s designed to feel fast, clean, and motivating:
+
+- **Practice** questions like a quiz game
+- **Track** CP (Code Points) as you improve
+- **Compete** on leaderboards
+- **Create & manage** question banks with full CRUD workflow
+
+---
+
+## Table of Contents
+
+- [Live Demo](#live-demo)
+- [Key Features](#key-features)
+- [Quick Navigation (Pages)](#quick-navigation-pages)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Run Locally](#run-locally)
+- [Firebase Setup Notes](#firebase-setup-notes)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+- [University / Course / Team Details](#university--course--team-details)
+
+---
+
+## Live Demo
+
+- **GitHub Pages**: https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/
+
+> Entry point: `index.html`
+
+---
+
+## Key Features
+
+### Learning & gameplay
 
 - **Objective quiz engine**
-  - Supports objective question workflows with smooth UI and interactive experience.
-- **Test series + contest hub**
-  - Explore test series, participate in contest flows, and track progress.
-- **Full CRUD for questions**
-  - Create, read/play, update, and delete question entries.
-- **Profiles + CP (Code Points) leveling**
-  - Local + Firestore sync of profile and progress.
-- **Leaderboard + analytics-style views**
-  - Competitive ranking experience for CP.
-- **Refer & Earn (modern UI)**
-  - A redesigned, animated referral page with curated FAQ and modern styling.
-- **Personalization (Settings panel)**
-  - Theme presets, theme accents, font selection, language preference, and zoom controls.
+  - Smooth attempt flow
+  - Consistent UI across pages
+- **Question browsing**
+  - Filters + search
+  - Focus links (jump to a question)
+- **Play mode + results**
+  - Attempt quizzes
+  - View performance and outcomes
+
+### Full CRUD workflow
+
+- **Create** questions and publish to Firestore
+- **Read** / browse and play
+- **Update** questions safely
+- **Delete** with guardrails
+
+### Competitive layer
+
+- **Profiles + CP (Code Points)**
+  - Progress tracking
+  - Local-first experience with Firestore sync
+- **Leaderboard**
+  - Competitive ranking view
+
+### Personalization
+
+- **Settings panel**
+  - Theme presets
+  - Accent colors
+  - Font selection
+  - Language preference
+  - Zoom controls
+
+<details>
+<summary><b>Why this feels “next level”</b></summary>
+
+- **Local-first UX**: fast UI even when network sync is still in progress.
+- **Reusable shared UI**: consistent navigation + shared components.
+- **GitHub Pages safe paths**: internal routing works under repo subpath.
+
+</details>
+
+---
+
+## Quick Navigation (Pages)
+
+| Area | Path |
+| --- | --- |
+| Landing | `index.html` |
+| Create Questions | `create/create.html` |
+| Browse / Read | `read/read.html` |
+| Update Questions | `update/update.html` |
+| Delete Questions | `delete/delete.html` |
+| Quiz Runner | `play/play.html` |
+| Results | `results/results.html` |
+| Test Series | `testseries/testseries.html` |
+| Leaderboard | `leaderboard/leaderboard.html` |
+| Profile | `profile/profile.html` |
+| Refer & Earn | `refer/refer.html` |
+| About / Contact | `about/about.html`, `contact/contact.html` |
 
 ---
 
 ## Tech Stack
 
 - **Frontend**
-  - HTML, CSS, JavaScript (ES Modules)
-- **Backend / Cloud**
-  - Firebase (Firestore)
-  - Firebase Hosting
-  - Firebase Cloud Functions (`/functions`)
+  - HTML, CSS
+  - JavaScript (ES Modules)
+- **Backend / Data**
+  - Firebase Firestore
+- **Hosting**
+  - GitHub Pages (for demo)
+  - Firebase Hosting (optional)
 
 ---
 
-## Project Structure (High-level)
+## Project Structure
 
-- **Landing**
-  - `index.html`
-- **Shared UI / Core Modules**
-  - `shared/` (base styles, UI helpers, nav, themes, Firebase init)
-- **Core Pages**
-  - `create/` – create questions
-  - `read/` – browse / read / play
-  - `update/` – update questions
-  - `delete/` – delete questions
-- **Test Series & Attempts**
-  - `testseries/`
-  - `test-attempt.html`
-- **Community / Platform**
-  - `leaderboard/`
-  - `profile/`
-  - `notifications/`
-  - `bookmarks/`
-  - `hub/`
-  - `about/`
-  - `contact/`
-  - `refer/`
+- `index.html` — Landing / entry point
+- `shared/` — shared UI, navigation, theme, Firebase init, helpers
+- `create/` `read/` `update/` `delete/` — CRUD modules
+- `play/` `results/` — quiz runner + results
+- `testseries/` — series listing and packs
+- `leaderboard/` `profile/` `bookmarks/` `hub/` — platform features
 
 ---
 
-## Getting Started
+## Run Locally
 
-### 1) Prerequisites
+Because this is a static website (plus Firebase), run it with any static server.
 
-- A modern browser (Chrome / Edge / Firefox)
-- Firebase project (Firestore enabled)
+- **Recommended**: use a local static server (so ES modules load correctly).
+- Entry point: open `index.html` in the browser via the server URL.
 
-### 2) Firebase Configuration
+---
 
-This project initializes Firebase from:
+## Firebase Setup Notes
+
+Firebase is initialized from:
 
 - `shared/firebase.js`
 
-If you clone this repo for your own deployment, replace the Firebase config in `shared/firebase.js` with your own project credentials.
+If you fork/clone for your own deployment:
 
-### 3) Run Locally
-
-Because this is a static web project (plus optional Cloud Functions), you can run it using:
-
-- Firebase Hosting emulator, or
-- Any static server
-
-Suggested entry point:
-
-- Open `index.html`
+- Replace the Firebase config in `shared/firebase.js` with your own Firebase project credentials.
 
 ---
 
-## Deployment (Firebase Hosting)
+## Deployment
 
-This repo contains Firebase configuration files:
+### GitHub Pages
+
+This repository is configured to work on GitHub Pages under the repo path:
+
+- `/Kopilot_The_Coding_Quiz_Contest/`
+
+Internal links were updated to be **GitHub Pages-safe** (relative paths).
+
+### Firebase Hosting (optional)
+
+Firebase-related config files (if you use Firebase Hosting):
 
 - `firebase.json`
 - `firestore.rules`
 - `firestore.indexes.json`
 
-You can deploy using standard Firebase CLI workflows.
-
 ---
 
-## Screenshots / Demo
+## Screenshots
 
-Add your screenshots here (recommended):
+Add screenshots here:
 
 - Landing page
 - Test series page
-- Quiz attempt view
+- Quiz runner
+- Results
 - Leaderboard
 - Profile
 - Refer & Earn
@@ -134,16 +220,3 @@ Add your screenshots here (recommended):
 3. **Varun Yadav** : 2301010173
 4. **Priyanshu** : 2301010148
 5. **Manish Ambawat** : 2301010147
-
----
-
-## Notes
-
-- Theme and preferences are stored in `localStorage` and applied site-wide.
-- Firestore collections and rules are defined by the Firebase configuration and the app modules under `shared/`.
-
----
-
-## License
-
-Add a license section if you plan to open-source the project.
