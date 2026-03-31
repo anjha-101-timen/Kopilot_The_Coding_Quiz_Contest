@@ -44,6 +44,7 @@ It’s designed to feel fast, clean, and motivating:
 ## Table of Contents
 
 - [Live Demo](#live-demo)
+- [Animated Documentation](#animated-documentation)
 - [Key Features](#key-features)
 - [Quick Navigation (Pages)](#quick-navigation-pages)
 - [Tech Stack](#tech-stack)
@@ -62,6 +63,24 @@ It’s designed to feel fast, clean, and motivating:
 - **GitHub Pages**: https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/
 
 > Entry point: `index.html`
+
+---
+
+## Animated Documentation
+
+<div align="center">
+
+<a href="./docs.html">
+  <img src="https://capsule-render.vercel.app/api?type=soft&color=0:7c3aed,100:22d3ee&height=120&section=header&text=Open%20Animated%20Docs&fontSize=28&fontColor=ffffff&animation=twinkling" alt="Open Animated Docs" />
+</a>
+
+<b>Want gradients, boxes, effects, animations, and interactive browsing?</b>
+
+<br/>
+
+<a href="./docs.html"><b>Open the full animated documentation page →</b></a>
+
+</div>
 
 ---
 
