@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Test Launcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .test-item:hover {
+            background: #e9ecef;
+        }
+        .start-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .start-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Emergency Test Launcher</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Firebase API Issue Detected</strong><br>
+            This launcher bypasses the Firebase connection issue and loads tests directly.
+        </div>
+
+        <h2>Available LeetCode Tests</h2>
+        <div id="test-list">
+            <p>Loading tests...</p>
+        </div>
+    </div>
+
+    <script>
+        // Sample test data based on your uploaded batches
+        const sampleTests = [
+            { id: 'leet-problem-1', name: 'Two Sum', questions: 25 },
+            { id: 'leet-problem-2', name: 'Valid Subarrays With Exactly One Peak', questions: 25 },
+            { id: 'leet-problem-3', name: 'Binary Search', questions: 25 },
+            { id: 'leet-problem-4', name: 'Dynamic Programming', questions: 25 },
+            { id: 'leet-problem-5', name: 'Tree Traversal', questions: 25 },
+            { id: 'leet-problem-6', name: 'Graph Algorithms', questions: 25 },
+            { id: 'leet-problem-7', name: 'String Manipulation', questions: 25 },
+            { id: 'leet-problem-8', name: 'Array Operations', questions: 25 },
+            { id: 'leet-problem-9', name: 'Sorting Algorithms', questions: 25 },
+            { id: 'leet-problem-10', name: 'Hash Tables', questions: 25 }
+        ];
+
+        function loadTests() {
+            const testList = document.getElementById('test-list');
+            testList.innerHTML = '';
+
+            sampleTests.forEach(test => {
+                const testDiv = document.createElement('div');
+                testDiv.className = 'test-item';
+                testDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>${test.name}</strong><br>
+                            <small>${test.questions} questions • GATE Format</small>
+                        </div>
+                        <button class="start-btn" onclick="startTest('${test.id}', '${test.name}')">
+                            Start Test
+                        </button>
+                    </div>
+                `;
+                testList.appendChild(testDiv);
+            });
+        }
+
+        function startTest(testId, testName) {
+            // Create a mock session and redirect to GATE test format
+            const sessionId = 'emergency-session-' + Date.now();
+            
+            // Store test info in sessionStorage
+            sessionStorage.setItem('emergency-test-data', JSON.stringify({
+                id: testId,
+                name: testName,
+                questions: generateMockQuestions(),
+                session: sessionId
+            }));
+
+            // Redirect to GATE test format
+            window.location.href = `./leet-test/gate-test-format.html?test=${encodeURIComponent(testId)}&session=${encodeURIComponent(sessionId)}&emergency=true`;
+        }
+
+        function generateMockQuestions() {
+            const types = ['mcq', 'true_false', 'msq', 'nat', 'fill_blank', 'assertion_reason'];
+            const questions = [];
+
+            for (let i = 1; i <= 25; i++) {
+                const type = types[Math.floor(Math.random() * types.length)];
+                let question = {
+                    id: i,
+                    type: type,
+                    question: `Sample question ${i} for testing purposes.`
+                };
+
+                switch (type) {
+                    case 'mcq':
+                        question.options = ['Option A', 'Option B', 'Option C', 'Option D'];
+                        question.correct_answer = Math.floor(Math.random() * 4);
+                        break;
+                    case 'true_false':
+                        question.correct_answer = Math.random() > 0.5;
+                        break;
+                    case 'msq':
+                        question.options = ['Option A', 'Option B', 'Option C', 'Option D'];
+                        question.correct_answers = [0, 2]; // Sample correct answers
+                        break;
+                    case 'nat':
+                        question.correct_answer = Math.floor(Math.random() * 100);
+                        break;
+                    case 'fill_blank':
+                        question.correct_answer = 'answer';
+                        break;
+                    case 'assertion_reason':
+                        question.correct_answer = 'both_true';
+                        break;
+                }
+
+                questions.push(question);
+            }
+
+            return questions;
+        }
+
+        // Load tests on page load
+        window.addEventListener('load', loadTests);
+    </script>
+</body>
+</html>

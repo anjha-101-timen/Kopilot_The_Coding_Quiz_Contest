@@ -1,0 +1,414 @@
+{
+  "exam": {
+    "title": "Valid Subarrays With Exactly One Peak - Demo Test",
+    "description": "Comprehensive test covering array manipulation, peak finding algorithms, and subarray analysis techniques",
+    "difficulty": "medium",
+    "duration": 50,
+    "totalQuestions": 25,
+    "marksPerQuestion": 2,
+    "totalMarks": 50,
+    "companies": ["google", "microsoft", "bloomberg"],
+    "topics": ["array", "greedy"],
+    "createdFor": "LeetCode Practice Test"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "MCQ",
+      "title": "Peak Element Definition",
+      "prompt": "What is the definition of a peak element in an array?",
+      "options": [
+        "An element that is greater than its immediate neighbors",
+        "An element that is greater than or equal to its immediate neighbors",
+        "The maximum element in the entire array",
+        "An element that is greater than all elements to its right"
+      ],
+      "correct": [1],
+      "difficulty": "easy",
+      "timeLimit": 45,
+      "explanation": "A peak element is one that is greater than its immediate neighbors. For edge elements, only one neighbor needs to be considered.",
+      "tags": ["basics", "definition"]
+    },
+    {
+      "id": 2,
+      "type": "MSQ",
+      "title": "Valid Peak Characteristics",
+      "prompt": "Which of the following are valid characteristics of a peak element? (Select all that apply)",
+      "options": [
+        "Can be at the beginning of the array",
+        "Can be at the end of the array",
+        "Must be greater than both neighbors",
+        "Can have equal neighbors",
+        "Is always the global maximum"
+      ],
+      "correct": [1, 2, 4],
+      "difficulty": "medium",
+      "timeLimit": 60,
+      "explanation": "A peak can be at array boundaries, can have equal neighbors, and must be greater than (or equal to) its neighbors. It doesn't have to be the global maximum.",
+      "tags": ["characteristics", "edge-cases"]
+    },
+    {
+      "id": 3,
+      "type": "TF",
+      "title": "Single Element Peak",
+      "prompt": "True or False: A single-element array always has exactly one peak.",
+      "options": ["True", "False"],
+      "correct": [1],
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "True. A single element is considered a peak since it has no neighbors to compare with.",
+      "tags": ["edge-cases", "basics"]
+    },
+    {
+      "id": 4,
+      "type": "FIB",
+      "title": "Peak Finding Complexity",
+      "prompt": "The time complexity of finding a peak element using binary search is O(___.",
+      "options": ["log n", "n", "n log n", "n²"],
+      "correct": [1],
+      "difficulty": "medium",
+      "timeLimit": 45,
+      "explanation": "Binary search can find a peak element in O(log n) time by comparing middle elements and deciding which half must contain a peak.",
+      "tags": ["algorithms", "complexity"]
+    },
+    {
+      "id": 5,
+      "type": "MCQ",
+      "title": "Valid Subarray Count",
+      "prompt": "In the array [1, 3, 2, 4, 1], how many subarrays have exactly one peak?",
+      "options": ["3", "5", "7", "9"],
+      "correct": [3],
+      "difficulty": "medium",
+      "timeLimit": 90,
+      "explanation": "The subarrays with exactly one peak are: [1,3,2], [1,3,2,4], [3,2], [3,2,4], [3,2,4,1], [2,4], [2,4,1]. Total: 7 subarrays.",
+      "tags": ["problem-solving", "counting"]
+    },
+    {
+      "id": 6,
+      "type": "MTF",
+      "title": "Algorithm Steps",
+      "prompt": "Arrange the steps for finding a peak using binary search in correct order:",
+      "options": [
+        "Compare middle element with neighbors",
+        "If middle is peak, return it",
+        "If left neighbor is greater, search left half",
+        "If right neighbor is greater, search right half",
+        "Choose middle element"
+      ],
+      "correct": [5, 1, 2, 3, 4],
+      "difficulty": "hard",
+      "timeLimit": 120,
+      "explanation": "The correct order is: Choose middle → Compare with neighbors → If peak, return → If left greater, search left → If right greater, search right.",
+      "tags": ["algorithms", "binary-search"]
+    },
+    {
+      "id": 7,
+      "type": "MCQ",
+      "title": "Monotonic Array Peaks",
+      "prompt": "In a strictly increasing array [1,2,3,4,5], how many subarrays have exactly one peak?",
+      "options": ["5", "7", "9", "11"],
+      "correct": [3],
+      "difficulty": "medium",
+      "timeLimit": 75,
+      "explanation": "In a strictly increasing array, each subarray's last element is a peak. There are 5 single-element subarrays + 4 two-element subarrays = 9 total.",
+      "tags": ["monotonic", "analysis"]
+    },
+    {
+      "id": 8,
+      "type": "TF",
+      "title": "Equal Neighbors",
+      "prompt": "True or False: In array [2,2,2], all elements are peaks.",
+      "options": ["True", "False"],
+      "correct": [1],
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "True. When elements are equal, each can be considered a peak since none is strictly greater than its neighbors.",
+      "tags": ["edge-cases", "definition"]
+    },
+    {
+      "id": 9,
+      "type": "MCQ",
+      "title": "Multiple Peaks Count",
+      "prompt": "In array [1,5,2,6,3,7,4], how many peak elements exist?",
+      "options": ["2", "3", "4", "5"],
+      "correct": [2],
+      "difficulty": "medium",
+      "timeLimit": 45,
+      "explanation": "The peak elements are: 5 (greater than 1 and 2), 6 (greater than 2 and 3), and 7 (greater than 3 and 4). Total: 3 peaks.",
+      "tags": ["analysis", "counting"]
+    },
+    {
+      "id": 10,
+      "type": "MSQ",
+      "title": "Optimal Approaches",
+      "prompt": "Which approaches are suitable for counting subarrays with exactly one peak? (Select all that apply)",
+      "options": [
+        "Dynamic Programming",
+        "Greedy Algorithm",
+        "Divide and Conquer",
+        "Brute Force",
+        "Sliding Window"
+      ],
+      "correct": [2, 4],
+      "difficulty": "hard",
+      "timeLimit": 90,
+      "explanation": "Greedy approach (expanding from peaks) and brute force are suitable. DP and divide-and-conquer are overly complex for this problem.",
+      "tags": ["algorithms", "optimization"]
+    },
+    {
+      "id": 11,
+      "type": "MCQ",
+      "title": "Equal Neighbors",
+      "prompt": "If an array has equal adjacent elements [2,2,2], how many peaks does it have?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": 2,
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "When elements are equal, each can be considered a peak since none is strictly greater than its neighbors. All three elements are peaks.",
+      "tags": ["edge-cases", "definition"]
+    },
+    {
+      "id": 12,
+      "type": "MCQ",
+      "title": "Optimal Strategy",
+      "prompt": "Which strategy is most efficient for finding all valid subarrays?",
+      "options": [
+        "Check every possible subarray",
+        "Expand from each peak element",
+        "Use sliding window technique",
+        "Apply prefix sums"
+      ],
+      "correct": 1,
+      "difficulty": "hard",
+      "timeLimit": 90,
+      "explanation": "Expanding from each peak element is most efficient as it directly targets valid subarrays rather than checking all possibilities.",
+      "tags": ["algorithms", "optimization"]
+    },
+    {
+      "id": 13,
+      "type": "MCQ",
+      "title": "Valley Elements",
+      "prompt": "What is a valley element in an array?",
+      "options": [
+        "An element smaller than its neighbors",
+        "The minimum element in the array",
+        "An element at the beginning of the array",
+        "An element with value 0"
+      ],
+      "correct": 0,
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "A valley element is one that is smaller than its immediate neighbors, the opposite of a peak element.",
+      "tags": ["definition", "concepts"]
+    },
+    {
+      "id": 14,
+      "type": "MCQ",
+      "title": "Google Interview Context",
+      "prompt": "Why is this problem popular in Google interviews?",
+      "options": [
+        "It tests array manipulation skills",
+        "It has multiple solution approaches",
+        "It combines multiple concepts",
+        "All of the above"
+      ],
+      "correct": 3,
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "This problem is popular because it tests array manipulation, has multiple solution approaches (brute force, greedy, optimized), and combines multiple algorithmic concepts.",
+      "tags": ["interview", "context"]
+    },
+    {
+      "id": 15,
+      "type": "MCQ",
+      "title": "Subarray Length Constraint",
+      "prompt": "What is the minimum length of a subarray that can have exactly one peak?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": 0,
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "A single-element subarray has exactly one peak (the element itself), so the minimum length is 1.",
+      "tags": ["constraints", "basics"]
+    },
+    {
+      "id": 16,
+      "type": "MCQ",
+      "title": "Microsoft Interview Focus",
+      "prompt": "What aspect of this problem is Microsoft most interested in?",
+      "options": [
+        "Mathematical proof",
+        "Code optimization",
+        "Time complexity analysis",
+        "Edge case handling"
+      ],
+      "correct": 2,
+      "difficulty": "medium",
+      "timeLimit": 45,
+      "explanation": "Microsoft typically focuses on time complexity analysis and optimization in array problems like this.",
+      "tags": ["interview", "company-specific"]
+    },
+    {
+      "id": 17,
+      "type": "MCQ",
+      "title": "Bloomberg Application",
+      "prompt": "How might this concept be applied in financial data analysis at Bloomberg?",
+      "options": [
+        "Finding local maxima in stock prices",
+        "Analyzing trading volumes",
+        "Calculating moving averages",
+        "Detecting market trends"
+      ],
+      "correct": 0,
+      "difficulty": "medium",
+      "timeLimit": 60,
+      "explanation": "Finding local maxima (peaks) in stock price data is a direct application of this concept in financial analysis.",
+      "tags": ["applications", "finance"]
+    },
+    {
+      "id": 18,
+      "type": "MCQ",
+      "title": "Array Size Impact",
+      "prompt": "How does the time complexity change as array size increases?",
+      "options": [
+        "Remains constant",
+        "Increases linearly",
+        "Increases logarithmically",
+        "Increases exponentially"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "timeLimit": 45,
+      "explanation": "With an optimal O(n) solution, the time complexity increases linearly with array size.",
+      "tags": ["complexity", "scaling"]
+    },
+    {
+      "id": 19,
+      "type": "MCQ",
+      "title": "Memory Usage",
+      "prompt": "For an array of size n=1000, what's the approximate memory usage of an optimal solution?",
+      "options": [
+        "1KB",
+        "4KB",
+        "8KB",
+        "16KB"
+      ],
+      "correct": 0,
+      "difficulty": "medium",
+      "timeLimit": 60,
+      "explanation": "With O(1) space complexity, the memory usage is minimal, approximately 1KB for counters and variables.",
+      "tags": ["memory", "optimization"]
+    },
+    {
+      "id": 20,
+      "type": "MCQ",
+      "title": "Debugging Scenario",
+      "prompt": "If your algorithm returns 0 for array [1,2,1], what's the most likely bug?",
+      "options": [
+        "Peak detection logic is wrong",
+        "Subarray counting is incorrect",
+        "Edge case handling is missing",
+        "Loop bounds are incorrect"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "timeLimit": 75,
+      "explanation": "The array [1,2,1] has valid subarrays with peaks, so returning 0 suggests the subarray counting logic is incorrect.",
+      "tags": ["debugging", "troubleshooting"]
+    },
+    {
+      "id": 21,
+      "type": "MCQ",
+      "title": "Performance Comparison",
+      "prompt": "Compared to brute force, how much faster is the optimal solution for n=10000?",
+      "options": [
+        "2x faster",
+        "10x faster",
+        "100x faster",
+        "1000x faster"
+      ],
+      "correct": 2,
+      "difficulty": "hard",
+      "timeLimit": 90,
+      "explanation": "Brute force is O(n³) while optimal is O(n), giving approximately 100x speedup for n=10000.",
+      "tags": ["performance", "comparison"]
+    },
+    {
+      "id": 22,
+      "type": "MCQ",
+      "title": "Real-world Analogy",
+      "prompt": "Which real-world scenario is analogous to finding peaks in subarrays?",
+      "options": [
+        "Finding hills in a mountain range",
+        "Detecting traffic patterns",
+        "Analyzing weather data",
+        "All of the above"
+      ],
+      "correct": 3,
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "All these scenarios involve finding local maxima in sequential data, making them analogous to the peak finding problem.",
+      "tags": ["analogy", "applications"]
+    },
+    {
+      "id": 23,
+      "type": "MCQ",
+      "title": "Algorithm Selection",
+      "prompt": "When would you prefer a simpler but slower algorithm?",
+      "options": [
+        "Always for better code readability",
+        "When input size is small",
+        "When memory is limited",
+        "Never, always use optimal"
+      ],
+      "correct": 1,
+      "difficulty": "medium",
+      "timeLimit": 45,
+      "explanation": "For small input sizes, a simpler algorithm might be preferred despite being slower, due to easier implementation and maintenance.",
+      "tags": ["algorithm-selection", "trade-offs"]
+    },
+    {
+      "id": 24,
+      "type": "MCQ",
+      "title": "Testing Strategy",
+      "prompt": "What's the most important test case for this problem?",
+      "options": [
+        "Empty array",
+        "Single element array",
+        "Array with all equal elements",
+        "All of the above"
+      ],
+      "correct": 3,
+      "difficulty": "easy",
+      "timeLimit": 30,
+      "explanation": "All these edge cases are crucial for testing the robustness of the solution.",
+      "tags": ["testing", "validation"]
+    },
+    {
+      "id": 25,
+      "type": "MCQ",
+      "title": "Future Enhancement",
+      "prompt": "How could this problem be extended for more complexity?",
+      "options": [
+        "Allow exactly k peaks",
+        "Consider circular arrays",
+        "Add weighted peaks",
+        "All of the above"
+      ],
+      "correct": 3,
+      "difficulty": "hard",
+      "timeLimit": 60,
+      "explanation": "All these extensions would add interesting complexity and new algorithmic challenges to the base problem.",
+      "tags": ["extensions", "advanced"]
+    }
+  ]
+}

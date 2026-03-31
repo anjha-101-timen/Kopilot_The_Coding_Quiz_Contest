@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Quiz Contest Platform</title>
+  <link rel="stylesheet" href="shared/base.css" />
+  <link rel="stylesheet" href="shared/level.css" />
+  <link rel="stylesheet" href="shared/nav.css" />
+  <link rel="stylesheet" href="shared/landing.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="create/create.html">Create</a>
+      <a class="navLink" href="read/read.html">Read</a>
+      <a class="navLink" href="update/update.html">Update</a>
+      <a class="navLink" href="delete/delete.html">Delete</a>
+      <a class="navLink" href="leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="about/about.html">About</a>
+      <a class="navLink" href="contact/contact.html">Contact</a>
+      <a class="navLink" href="refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill">
+      <span class="pulse"></span>
+      <span class="pillText">Connecting…</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="heroLeft">
+        <div class="badge">Objective MCQ Platform</div>
+        <h1>
+          <span class="grad">Coding Quiz Contest Platform</span>
+        </h1>
+        <p>
+          Learn coding concepts the smart way: objective MCQs, topic-wise test series, quick revision packs, and a smooth quiz experience.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="testseries/testseries.html">Start Exploring</a>
+          <a class="btn ghost" href="read/read.html">Browse Questions</a>
+        </div>
+
+        <div class="hindiQuote" role="note" aria-label="Coding quote">
+          <div class="hqLine">"पढ़ाई वही जो सोच बदले, और अभ्यास वही जो मंज़िल तक ले जाए।"</div>
+          <div class="hqFrom">— Coding Quiz Contest Platform</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="k" id="statCount">—</div>
+            <div class="l">Questions</div>
+          </div>
+          <div class="stat">
+            <div class="k">4</div>
+            <div class="l">Objective Types</div>
+          </div>
+          <div class="stat">
+            <div class="k">Live</div>
+            <div class="l">Firestore Sync</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="card">
+          <div class="cardHeader">
+            <div class="chip">Preview</div>
+            <div class="mono">Dynamic Renderer</div>
+          </div>
+
+          <div class="preview" id="preview">
+            <div class="shimmerCard" aria-hidden="true">
+              <div class="skLine w80"></div>
+              <div class="skLine w55"></div>
+              <div class="skLine w65"></div>
+              <div class="skLine w45"></div>
+            </div>
+          </div>
+
+          <div class="cardFooter">
+            <a class="miniLink" href="read/read.html">Open Quiz Player</a>
+            <span class="hint">Tip: Use MSQ to test multi-concept reasoning.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tiles">
+      <a class="tile create" href="create/create.html">
+        <div class="tileIcon">+</div>
+        <div class="tileBody">
+          <div class="tileTitle">Create Questions</div>
+          <div class="tileSub">Dynamic forms per type with validation.</div>
+        </div>
+      </a>
+
+      <a class="tile read" href="read/read.html">
+        <div class="tileIcon">▦</div>
+        <div class="tileBody">
+          <div class="tileTitle">Read + Play</div>
+          <div class="tileSub">Shimmer loader, filters, and quiz runner.</div>
+        </div>
+      </a>
+
+      <a class="tile update" href="update/update.html">
+        <div class="tileIcon">✎</div>
+        <div class="tileBody">
+          <div class="tileTitle">Update</div>
+          <div class="tileSub">Edit with live preview & safe saves.</div>
+        </div>
+      </a>
+
+      <a class="tile delete" href="delete/delete.html">
+        <div class="tileIcon">⌫</div>
+        <div class="tileBody">
+          <div class="tileTitle">Delete</div>
+          <div class="tileSub">Guardrails + confirmation dialog.</div>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="shared/firebase.js"></script>
+  <script type="module" src="shared/ui.js"></script>
+  <script type="module" src="shared/level.js"></script>
+  <script type="module" src="shared/theme.js"></script>
+  <script type="module" src="shared/nav.js"></script>
+  <script type="module" src="shared/landing.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>
