@@ -2,19 +2,27 @@
 
 <div align="center">
 
-### Team Kopilot • Objective Quiz Engine • Test Series • Leaderboards
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,100:22d3ee&height=210&section=header&text=Coding%20Quiz%20Contest%20Platform&fontSize=34&fontColor=ffffff&animation=fadeIn&fontAlignY=35" alt="Coding Quiz Contest Platform" />
 
-<b>Build skills. Earn CP. Climb the leaderboard.</b>
+<a href="https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/">
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=18&duration=2400&pause=600&color=22D3EE&center=true&vCenter=true&width=740&lines=Team+Kopilot+%E2%80%A2+Objective+Quiz+Engine;Create+%E2%86%92+Read%2FPlay+%E2%86%92+Update+%E2%86%92+Delete;Build+skills.+Earn+CP.+Climb+the+Leaderboard." alt="Typing SVG" />
+</a>
 
-[Live Demo (GitHub Pages)](https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/)
+<p><b>Build skills. Earn CP. Climb the leaderboard.</b></p>
 
-<br/>
+<p>
+  <a href="https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/"><b>Live Demo (GitHub Pages)</b></a>
+  <br/>
+  <sub>Entry point: <code>index.html</code></sub>
+</p>
 
-![HTML](https://img.shields.io/badge/HTML-5-orange)
-![CSS](https://img.shields.io/badge/CSS-3-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-yellow)
-![Firebase](https://img.shields.io/badge/Firebase-Firestore-ffca28)
-![Hosting](https://img.shields.io/badge/Deploy-GitHub%20Pages-black)
+<p>
+  <img src="https://img.shields.io/badge/HTML-5-orange" alt="HTML" />
+  <img src="https://img.shields.io/badge/CSS-3-blue" alt="CSS" />
+  <img src="https://img.shields.io/badge/JavaScript-ES%20Modules-yellow" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Firebase-Firestore-ffca28" alt="Firebase" />
+  <img src="https://img.shields.io/badge/Deploy-GitHub%20Pages-black" alt="GitHub Pages" />
+</p>
 
 </div>
 
