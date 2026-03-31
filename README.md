@@ -48,6 +48,7 @@ It’s designed to feel fast, clean, and motivating:
 - [Quick Navigation (Pages)](#quick-navigation-pages)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
+- [Detailed Folder Documentation](#detailed-folder-documentation)
 - [Run Locally](#run-locally)
 - [Firebase Setup Notes](#firebase-setup-notes)
 - [Deployment](#deployment)
@@ -153,6 +154,489 @@ It’s designed to feel fast, clean, and motivating:
 - `play/` `results/` — quiz runner + results
 - `testseries/` — series listing and packs
 - `leaderboard/` `profile/` `bookmarks/` `hub/` — platform features
+
+---
+
+## Detailed Folder Documentation
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22d3ee,100:7c3aed&height=4&section=header" alt="divider" />
+
+<b>Every folder = a feature. Every page = a mission.</b>
+
+<sub>Tip: Each module below has an <code>.html</code> page (UI), a <code>.css</code> file (design), and a <code>.js</code> file (logic).</sub>
+
+</div>
+
+### Core entry
+
+| Item | What it does | Files |
+| --- | --- | --- |
+| **Landing / Home** | The GitHub Pages entry point. Brand, hero, quick navigation, and "Start Exploring" CTA. | `index.html` + `shared/landing.css` + `shared/landing.js` |
+
+---
+
+<details>
+<summary><b><code>about/</code> — About the platform (story + mission)</b></summary>
+
+- **Purpose**
+  - This is the “who we are / why we built this” page.
+  - A high-energy hero banner + feature cards.
+- **UI entry**
+  - `about/about.html`
+- **Styling**
+  - `about/about.css`
+- **Logic**
+  - `about/about.js`
+
+<sub>Vibe: Motivation + credibility — "We build coders who win."</sub>
+
+</details>
+
+<details>
+<summary><b><code>bookmarks/</code> — Save & revisit important exams/questions</b></summary>
+
+- **Purpose**
+  - Bookmark exams/questions and return anytime.
+  - Includes empty state + refresh.
+- **UI entry**
+  - `bookmarks/bookmarks.html`
+- **Styling**
+  - `bookmarks/bookmarks.css`
+- **Logic**
+  - `bookmarks/bookmarks.js`
+- **Uses shared modules**
+  - `shared/bookmarks.js` (bookmark storage + helpers)
+
+<sub>Vibe: "Save today, win tomorrow."</sub>
+
+</details>
+
+<details>
+<summary><b><code>branches/</code> — Branch explorer (curated computer fields)</b></summary>
+
+- **Purpose**
+  - A visual catalogue of top computer science fields (AI/ML/DL/DS/…)
+  - Cards with "Explore" and "Start" actions.
+- **UI entry**
+  - `branches/branches.html`
+- **Styling**
+  - `branches/branches.css`
+- **Logic**
+  - `branches/branches.js`
+
+<sub>Vibe: "Pick a path. Master it. Become unstoppable."</sub>
+
+</details>
+
+<details>
+<summary><b><code>contact/</code> — Contact page (feedback + collaboration)</b></summary>
+
+- **Purpose**
+  - A polished contact experience with clear info blocks (email, response time, etc.).
+- **UI entry**
+  - `contact/contact.html`
+- **Styling**
+  - `contact/contact.css`
+- **Logic**
+  - `contact/contact.js`
+
+<sub>Vibe: "Small feedback. Big impact."</sub>
+
+</details>
+
+---
+
+### CRUD modules (Create → Read → Update → Delete)
+
+<details>
+<summary><b><code>create/</code> — Exam creation + question framing (Publish)</b></summary>
+
+- **Purpose**
+  - Create a new exam configuration.
+  - Frame questions under that exam.
+  - Publish to Firestore.
+- **UI entry**
+  - `create/create.html`
+- **Styling**
+  - `create/create.css`
+- **Logic**
+  - `create/create.js`
+
+<sub>Mindset: "If you can create questions, you can create champions."</sub>
+
+</details>
+
+<details>
+<summary><b><code>read/</code> — Browse exams + open question bank (Read-only + Play)</b></summary>
+
+- **Purpose**
+  - Display exam cards.
+  - Open an exam to see framed questions.
+  - Start the contest (Play), view Results, or Manage (Update).
+- **UI entry**
+  - `read/read.html`
+- **Styling**
+  - `read/read.css`
+- **Logic**
+  - `read/read.js`
+
+<sub>Vibe: "Choose an exam. Enter the arena."</sub>
+
+</details>
+
+<details>
+<summary><b><code>update/</code> — Manage exams + edit questions (Save changes)</b></summary>
+
+- **Purpose**
+  - Select an exam.
+  - Load its questions.
+  - Edit safely and save updates.
+- **UI entry**
+  - `update/update.html`
+- **Styling**
+  - `update/update.css`
+- **Logic**
+  - `update/update.js`
+
+<sub>Vibe: "Upgrade your question bank like you upgrade your skills."</sub>
+
+</details>
+
+<details>
+<summary><b><code>delete/</code> — Remove framed questions (with guardrails)</b></summary>
+
+- **Purpose**
+  - Choose an exam.
+  - Permanently delete questions you no longer want.
+- **UI entry**
+  - `delete/delete.html`
+- **Styling**
+  - `delete/delete.css`
+- **Logic**
+  - `delete/delete.js`
+
+<sub>Vibe: "Cut the noise. Keep the best."</sub>
+
+</details>
+
+---
+
+### Gameplay & performance
+
+<details>
+<summary><b><code>play/</code> — Contest mode (timer + palette + attempt flow)</b></summary>
+
+- **Purpose**
+  - The quiz runner.
+  - Includes per-question timer, question palette, and navigation.
+- **UI entry**
+  - `play/play.html`
+- **Styling**
+  - `play/play.css`
+- **Logic**
+  - `play/play.js`
+
+<sub>Vibe: "Every question is a round. Every round is a step up."</sub>
+
+</details>
+
+<details>
+<summary><b><code>results/</code> — Score analysis + attempt history</b></summary>
+
+- **Purpose**
+  - After a round, show analysis and breakdown.
+  - Includes chips (CP, question type) and multiple analysis panels.
+- **UI entry**
+  - `results/results.html`
+- **Styling**
+  - `results/results.css`
+- **Logic**
+  - `results/results.js`
+
+<sub>Vibe: "Don’t just practice — measure, learn, dominate."</sub>
+
+</details>
+
+---
+
+### Competitive + identity
+
+<details>
+<summary><b><code>leaderboard/</code> — CP ranking (competition layer)</b></summary>
+
+- **Purpose**
+  - Show CP rank.
+  - Motivational hero + ranked list.
+- **UI entry**
+  - `leaderboard/leaderboard.html`
+- **Styling**
+  - `leaderboard/leaderboard.css`
+- **Logic**
+  - `leaderboard/leaderboard.js`
+
+<sub>Vibe: "Your CP is your proof."</sub>
+
+</details>
+
+<details>
+<summary><b><code>profile/</code> — Personal profile + stats + save</b></summary>
+
+- **Purpose**
+  - Set display name and bio.
+  - View CP/level/rank/device stats.
+- **UI entry**
+  - `profile/profile.html`
+- **Styling**
+  - `profile/profile.css`
+- **Logic**
+  - `profile/profile.js`
+
+<sub>Vibe: "Build your identity. Build your legacy."</sub>
+
+</details>
+
+<details>
+<summary><b><code>refer/</code> — Refer & Earn (share link + referral stats)</b></summary>
+
+- **Purpose**
+  - Copy/share referral link.
+  - Track referral stats and leaderboard.
+  - Includes FAQ-style content.
+- **UI entry**
+  - `refer/refer.html`
+- **Styling**
+  - `refer/refer.css`
+- **Logic**
+  - `refer/refer.js`
+
+<sub>Vibe: "Turn friends into code warriors."</sub>
+
+</details>
+
+---
+
+### Contest ecosystem
+
+<details>
+<summary><b><code>hub/</code> — Contest Hub (tabs: Description / Tests / Announcements)</b></summary>
+
+- **Purpose**
+  - Central place for contest-style navigation.
+  - Tabs for overview, tests, announcements.
+  - Stats: available exams, total questions, your CP.
+- **UI entry**
+  - `hub/hub.html`
+- **Styling**
+  - `hub/hub.css`
+- **Logic**
+  - `hub/hub.js`
+
+<sub>Vibe: "Everything you need. One hub."</sub>
+
+</details>
+
+<details>
+<summary><b><code>contest/</code> — Admin-style Contest Hub (create + filter)</b></summary>
+
+- **Purpose**
+  - Browse past/current/future contests.
+  - Filters (status, date range, search) + create contest action.
+- **UI entry**
+  - `contest/contest.html`
+- **Styling**
+  - `contest/contest.css`
+- **Logic**
+  - `contest/contest.js`
+
+<sub>Vibe: "Run contests like a pro."</sub>
+
+</details>
+
+<details>
+<summary><b><code>contests/</code> — Contests (table + powerful filters)</b></summary>
+
+- **Purpose**
+  - View contests in a structured table layout.
+  - Filter by status (All/Live/Upcoming/Past), code, name, and time.
+- **UI entry**
+  - `contests/contests.html`
+- **Styling**
+  - `contests/contests.css`
+- **Logic**
+  - `contests/contests.js`
+
+<sub>Vibe: "Find the next contest. Claim the next win."</sub>
+
+</details>
+
+---
+
+### Productivity modules
+
+<details>
+<summary><b><code>notifications/</code> — Notifications (updates + contest alerts)</b></summary>
+
+- **Purpose**
+  - Show platform updates, contest alerts, announcements.
+  - Filter by examId and mark all as read.
+- **UI entry**
+  - `notifications/notifications.html`
+- **Styling**
+  - `notifications/notifications.css`
+- **Logic**
+  - `notifications/notifications.js`
+
+<sub>Vibe: "Never miss an update."</sub>
+
+</details>
+
+<details>
+<summary><b><code>languages/</code> — UI language selection (instant apply)</b></summary>
+
+- **Purpose**
+  - Search and select UI language.
+  - Quick chips (English, Hindi, Bengali, Tamil, Telugu, Urdu…).
+- **UI entry**
+  - `languages/languages.html`
+- **Styling**
+  - `languages/languages.css`
+- **Logic**
+  - `languages/languages.js`
+- **Related shared modules**
+  - `shared/i18n.js`, `shared/langs.js`
+
+<sub>Vibe: "Your language. Your comfort. Your speed."</sub>
+
+</details>
+
+---
+
+### Test Series system (Coders Tester)
+
+<details>
+<summary><b><code>testseries/</code> — Test series catalog + series detail (tabs + filters)</b></summary>
+
+- **Purpose**
+  - Premium-looking test series catalogue.
+  - Series detail page with tabs (Test / Study Material / Announcements).
+  - Filters for attempted/non-attempted/resume, per-problem view, pagination.
+- **UI entry**
+  - `testseries/testseries.html` (catalog)
+  - `testseries/series.html` (series detail)
+- **Styling**
+  - `testseries/testseries.css`
+  - `testseries/series.css`
+- **Logic**
+  - `testseries/testseries.js`
+  - `testseries/series.js`
+
+<sub>Vibe: "Practice like it’s a finals match."</sub>
+
+</details>
+
+---
+
+### LeetCode-style and standalone test utilities
+
+<details>
+<summary><b><code>leet-test/</code> — LeetCode concept test + analysis + GATE format test</b></summary>
+
+- **Purpose**
+  - Interactive objective tests inspired by LeetCode concept practice.
+  - Dedicated analysis page.
+  - GATE-style test format with results.
+- **Key pages**
+  - `leet-test/leet-test.html` (test runner)
+  - `leet-test/analyze.html` (analysis)
+  - `leet-test/gate-test-format.html` (GATE format)
+  - `leet-test/gate-results.html` (GATE results)
+- **Helper**
+  - `leet-test/test-integration-helper.js`
+- **Docs**
+  - `leet-test/GATE-TEST-SYSTEM-README.md`
+
+<sub>Vibe: "Concepts → Confidence → CP."</sub>
+
+</details>
+
+<details>
+<summary><b>Standalone HTML flows (root)</b></summary>
+
+- `online-test-system.html` — Online test system entry.
+- `offline-test-system.html` — Offline variant / fallback.
+- `test-attempt.html` — Test attempt view.
+- `emergency-test-launcher.html` — Launcher for emergency flows.
+
+</details>
+
+---
+
+### Shared system (the “engine room”)
+
+<details>
+<summary><b><code>shared/</code> — Shared UI, theme, Firebase, i18n, and reusable logic</b></summary>
+
+| File | Role |
+| --- | --- |
+| `shared/firebase.js` | Firebase initialization (Firestore connection). |
+| `shared/nav.js` + `shared/nav.css` | Global navigation + settings modal (themes, fonts, accents, language, zoom). |
+| `shared/base.css` | Global design system (buttons, cards, layout, tokens). |
+| `shared/page.css` | Shared page scaffolding styles (headers, shells, panels). |
+| `shared/level.js` + `shared/level.css` | CP/level logic and UI layer. |
+| `shared/ui.js` | Toasts and small UI helpers. |
+| `shared/attempts.js` | Attempt storage + tracking. |
+| `shared/exams.js` | Exam card rendering helpers. |
+| `shared/questions.js` | Question rendering + actions (focus/edit/delete links). |
+| `shared/i18n.js`, `shared/langs.js` | Language packs + selection utilities. |
+| `shared/landing.css`, `shared/landing.js` | Landing page visuals + live stats hookup. |
+| `shared/zoom-widget.html` | Shared zoom widget template. |
+
+<sub>Vibe: "One shared system, many powerful pages."</sub>
+
+</details>
+
+---
+
+### Backend / configuration
+
+<details>
+<summary><b><code>functions/</code> — Firebase Cloud Functions (minimal)</b></summary>
+
+- `functions/index.js` — Firebase Functions entry (AI generation removed).
+- `functions/package.json` + lock — dependencies for functions.
+
+</details>
+
+<details>
+<summary><b>Firebase config files (root)</b></summary>
+
+- `firebase.json` — hosting / firebase config.
+- `firestore.rules` — Firestore security rules.
+- `firestore.indexes.json` — Firestore indexes.
+- `firebase_database_structure.md` — database structure documentation.
+
+</details>
+
+---
+
+### Data & integration assets
+
+<details>
+<summary><b>Large datasets and integrations</b></summary>
+
+- `leet.json` — large LeetCode dataset used for packs/lists.
+- `leet_test_integration.js` — integration logic for LeetCode-style flows.
+- `demo-test-questions.json` — sample/demo question set.
+
+</details>
+
+---
+
+### Notes about “animations” in GitHub README
+
+> GitHub doesn’t apply custom CSS animations inside README, but animated SVG banners (like the header above) work perfectly because they render as images.
 
 ---
 
