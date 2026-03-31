@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifications • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../notifications/notifications.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">सूचनाएँ — हर अपडेट, सीधे आपके लिए</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="../index.html">Home</a>
+      <a class="navLink" href="../hub/hub.html">Contest Hub</a>
+      <a class="navLink" href="../read/read.html">Read</a>
+      <a class="navLink" href="../leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="../bookmarks/bookmarks.html">Bookmarks</a>
+      <a class="navLink" href="../notifications/notifications.html">Notifications</a>
+      <a class="navLink" href="../profile/profile.html">Profile</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Notifications</h1>
+        <div class="pageSub">Platform updates, contest alerts, and important announcements.</div>
+      </div>
+      <div class="row">
+        <button class="btn" id="btnRefresh">Refresh</button>
+        <button class="btn primary" id="btnMarkAll">Mark All Read</button>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike" id="filters">
+        <div class="row" style="justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div class="row">
+            <div class="field" style="margin:0">
+              <div class="label">Filter by Exam (optional)</div>
+              <input class="input" id="examId" placeholder="Paste examId if you want…" />
+            </div>
+          </div>
+          <div class="row" style="align-items:end">
+            <button class="btn ghost" id="btnApply">Apply</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike" id="empty" style="display:none">
+        <div style="font-weight:750; letter-spacing:-.02em">No notifications</div>
+        <div class="small" style="margin-top:8px">When you publish announcements or push updates, they will appear here.</div>
+      </div>
+
+      <div class="panel" style="padding:0; border:none; background:transparent">
+        <div class="nList" id="list" style="display:none"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../notifications/notifications.js"></script>
+  <script>
+    // Ensure notifications list is not shown by default; show only after load or user action
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const list = document.getElementById('list');
+      const empty = document.getElementById('empty');
+      // Show list only when data is populated or empty state is shown
+      const observer = new MutationObserver(()=>{
+        if(list.children.length > 0 || empty.style.display !== 'none'){
+          list.style.display = '';
+        }
+      });
+      observer.observe(list, { childList: true, subtree: true });
+      observer.observe(empty, { attributes: true, attributeFilter: ['style'] });
+    });
+  </script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

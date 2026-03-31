@@ -1,0 +1,92 @@
+.pageHead{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top: 16px;}
+.pageTitle{font-size: 28px; font-weight:600; color: var(--text); margin:0;}
+.pageSub{margin-top:4px; color: var(--muted2); max-width: 88ch; font-size: 14px; line-height:1.4;}
+
+.shell{display:grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px;}
+.panel{padding: 16px; border-radius: var(--radius2);
+  background: var(--card2);
+  border: 1px solid var(--stroke);
+}
+
+.qGrid{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;}
+.qCard{padding: 16px; border-radius: var(--radius2);
+  background: var(--card2);
+  border: 1px solid var(--stroke);
+  transition: border-color .15s, background .15s;
+}
+.qCard:hover{border-color: var(--stroke2); background: var(--card3);}
+.qTop{display:flex; justify-content:space-between; align-items:center; gap: 12px;}
+.qBadges{display:flex; gap: 8px; align-items:center; flex-wrap:wrap}
+.qPill{padding: 4px 8px; border-radius: var(--radius); 
+  background: var(--card3);
+  border: 1px solid var(--stroke);
+  font-size: 12px; color: var(--muted); font-weight:500; 
+}
+.qPill:hover{background: var(--bg1);}
+.qPill.dim{background: var(--card); color: var(--muted2);}
+.qId{opacity:.6; font-family: var(--mono); font-size: 12px; color: var(--muted2);}
+.qTitle{font-weight:600; margin-top: 8px; font-size: 14px; color: var(--text);}
+.qPrompt{margin-top: 6px; font-size: 13px; color: var(--muted2); line-height:1.4;}
+.qTags{display:flex; gap: 6px; flex-wrap:wrap; margin-top: 8px;}
+.tag{font-size: 11px; padding: 4px 8px; border-radius: var(--radius); border: 1px solid var(--stroke); background: var(--card); color: var(--muted2); font-weight:500;}
+.tag:hover{background: var(--card2); color: var(--muted);}
+
+.qActions{display:flex; gap: 8px; margin-top: 12px; flex-wrap:wrap;}
+.smallBtn{padding: 6px 12px; border-radius: var(--radius); font-weight:500; font-size:13px; transition: background .15s, border-color .15s;}
+.smallBtn.danger{border-color: var(--bad); background: var(--card); color: var(--bad);}
+.smallBtn.danger:hover{background: var(--card2); border-color: var(--bad);}
+
+.examGrid{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;}
+.examCard{padding: 16px; border-radius: var(--radius2);
+  background: var(--card2);
+  border: 1px solid var(--stroke);
+  transition: border-color .15s, background .15s;
+}
+.examCard:hover{border-color: var(--stroke2); background: var(--card3);}
+.examTop{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.examTitle{font-weight:600; font-size: 16px; color: var(--text);}
+.examSub{margin-top:8px; color: var(--muted2); font-size: 13px; line-height:1.4;}
+.examMeta{display:flex; gap: 8px; flex-wrap:wrap; margin-top: 8px;}
+.examActions{display:flex; gap:8px; flex-wrap:wrap; margin-top: 12px;}
+
+.playerTitle{font-weight:600; font-size: 18px; color: var(--text);}
+.playerMeta{display:flex; gap: 8px; flex-wrap:wrap; margin-top: 6px;}
+.playerPrompt{margin-top: 12px; color: var(--muted2); line-height:1.5; font-size: 14px;}
+.playerBody{margin-top: 12px;}
+
+.optGrid{display:grid; gap: 8px;}
+.optGrid.two{grid-template-columns: repeat(2, minmax(0,1fr));}
+.opt{display:flex; gap: 10px; align-items:center; padding: 12px; border-radius: var(--radius2);
+  background: var(--card2);
+  border: 1px solid var(--stroke);
+  cursor:pointer; transition: border-color .15s, background .15s;
+}
+.opt:hover{background: var(--card3); border-color: var(--stroke2);}
+.opt input{position:absolute; opacity:0; pointer-events:none}
+.optBox{width: 18px; height: 18px; border-radius: var(--radius); border: 2px solid var(--stroke); background: var(--card); transition: all .15s;}
+.opt input:checked + .optBox{border-color: var(--brand); background: var(--brand);}
+.optText{color: var(--text); font-weight:500; font-size:14px;}
+
+.fibWrap{display:grid; gap: 8px}
+
+.result{margin-top: 8px; padding: 8px 12px; border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+  color: var(--muted2);
+  background: var(--card2);
+  white-space: pre-line;
+  font-size:13px;
+}
+.result.ok{border-color: var(--ok); background: var(--card2); color: var(--ok)}
+.result.bad{border-color: var(--bad); background: var(--card2); color: var(--bad)}
+
+.playerFooter{display:flex; gap: 8px; margin-top: 8px; align-items:center; flex-wrap:wrap}
+
+@media (max-width: 1000px){
+  .qGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .examGrid{grid-template-columns: repeat(2, minmax(0,1fr));}
+}
+@media (max-width: 620px){
+  .qGrid{grid-template-columns: 1fr;}
+  .examGrid{grid-template-columns: 1fr;}
+  .optGrid.two{grid-template-columns: 1fr}
+}

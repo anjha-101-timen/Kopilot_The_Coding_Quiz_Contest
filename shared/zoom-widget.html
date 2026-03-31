@@ -1,0 +1,33 @@
+<!-- Global Zoom Widget (include in body of every page) -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = 'siteZoom';
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty('--zoom', v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById('zoomIn')?.addEventListener('click', ()=>setZoom(getZoom()+STEP));
+  document.getElementById('zoomOut')?.addEventListener('click', ()=>setZoom(getZoom()-STEP));
+
+  // Keyboard shortcuts: Ctrl + '+' / Ctrl + '-'
+  document.addEventListener('keydown', e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key=== '=' || e.key=== '+'){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key=== '-'){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key=== '0'){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>

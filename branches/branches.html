@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Branches • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../branches/branches.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub">Branches • Top Computer Fields</div>
+      </div>
+    </div>
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="brHead">
+      <div>
+        <h1 class="brTitle">{Branches}</h1>
+        <div class="brSub">// Pick a field to explore curated learning paths, practice sets, and projects ()[]{};</div>
+      </div>
+      <div class="brActions">
+        <a class="btn" href="../read/read.html">Explore Exams</a>
+        <a class="btn primary" href="../leaderboard/leaderboard.html">Leaderboard</a>
+      </div>
+    </section>
+
+    <section class="brGrid" id="brGrid">
+      <article class="brCard featured" data-branch="ai">
+        <div class="brTop">
+          <div class="brName">Artificial Intelligence</div>
+          <div class="brTag">AI</div>
+        </div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Neural networks, reasoning, search, and modern AI tooling with hands-on practice.</div>
+        <div class="brMeta">
+          <div class="brMetaItem"><span class="brDot"></span> Roadmap + quizzes</div>
+          <div class="brMetaItem"><span class="brDot"></span> Mini projects</div>
+          <div class="brMetaItem"><span class="brDot"></span> Interview focus</div>
+        </div>
+        <div class="brFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn primary" type="button" data-action="start">Start</button>
+        </div>
+      </article>
+
+      <article class="brCard" data-branch="ml">
+        <div class="brTop"><div class="brName">Machine Learning</div><div class="brTag alt">ML</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Supervised/unsupervised learning, evaluation, feature engineering, and model selection.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Core algorithms</div><div class="brMetaItem"><span class="brDot"></span> Metrics + tuning</div><div class="brMetaItem"><span class="brDot"></span> Practice sets</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="dl">
+        <div class="brTop"><div class="brName">Deep Learning</div><div class="brTag">DL</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">CNNs, RNNs, Transformers, training tricks, and deployment-ready workflows.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Modern architectures</div><div class="brMetaItem"><span class="brDot"></span> Optimization</div><div class="brMetaItem"><span class="brDot"></span> Model debugging</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="ds">
+        <div class="brTop"><div class="brName">Data Science</div><div class="brTag alt">DS</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Data cleaning, analysis, visualization, storytelling, and practical ML foundations.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Pandas + SQL</div><div class="brMetaItem"><span class="brDot"></span> EDA</div><div class="brMetaItem"><span class="brDot"></span> Case studies</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="fullstack">
+        <div class="brTop"><div class="brName">Full Stack Web Development</div><div class="brTag">WEB</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Frontend + backend, APIs, auth, databases, performance, and production deployment.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> React patterns</div><div class="brMetaItem"><span class="brDot"></span> Node + DB</div><div class="brMetaItem"><span class="brDot"></span> System design</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="devops">
+        <div class="brTop"><div class="brName">DevOps</div><div class="brTag alt">OPS</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">CI/CD, containers, infrastructure as code, monitoring, and reliable releases.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Docker + k8s</div><div class="brMetaItem"><span class="brDot"></span> Pipelines</div><div class="brMetaItem"><span class="brDot"></span> Observability</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="cloud">
+        <div class="brTop"><div class="brName">Cloud Computing</div><div class="brTag">CLOUD</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Core cloud services, architecture, scaling, cost optimization, and security basics.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> AWS/Azure/GCP</div><div class="brMetaItem"><span class="brDot"></span> Architecture</div><div class="brMetaItem"><span class="brDot"></span> Best practices</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="cyber">
+        <div class="brTop"><div class="brName">Cybersecurity</div><div class="brTag alt">SEC</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Security fundamentals, web security, threat modeling, and defensive engineering.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> OWASP</div><div class="brMetaItem"><span class="brDot"></span> Secure coding</div><div class="brMetaItem"><span class="brDot"></span> Hands-on labs</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="mobile">
+        <div class="brTop"><div class="brName">Mobile App Development</div><div class="brTag">MOBILE</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Android/iOS foundations, cross-platform, UI patterns, and app architecture.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> React Native</div><div class="brMetaItem"><span class="brDot"></span> Flutter</div><div class="brMetaItem"><span class="brDot"></span> App patterns</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="blockchain">
+        <div class="brTop"><div class="brName">Blockchain & Web3</div><div class="brTag alt">WEB3</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Smart contracts, tokens, wallets, security, and real-world dApp patterns.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Solidity basics</div><div class="brMetaItem"><span class="brDot"></span> Contract security</div><div class="brMetaItem"><span class="brDot"></span> dApp projects</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="iot">
+        <div class="brTop"><div class="brName">IoT & Embedded Systems</div><div class="brTag">IOT</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Sensors, microcontrollers, protocols, edge computing, and real-time constraints.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> MQTT/HTTP</div><div class="brMetaItem"><span class="brDot"></span> Edge basics</div><div class="brMetaItem"><span class="brDot"></span> Practical builds</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="systems">
+        <div class="brTop"><div class="brName">Systems & OS</div><div class="brTag alt">SYS</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Operating systems, concurrency, networking basics, and performance engineering.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Threads + locks</div><div class="brMetaItem"><span class="brDot"></span> Networking</div><div class="brMetaItem"><span class="brDot"></span> Debugging</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="dsa">
+        <div class="brTop"><div class="brName">Data Structures & Algorithms</div><div class="brTag">DSA</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Core problem-solving, patterns, complexity, and competitive programming practice.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Patterns</div><div class="brMetaItem"><span class="brDot"></span> Timed sets</div><div class="brMetaItem"><span class="brDot"></span> CP focus</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="backend">
+        <div class="brTop"><div class="brName">Backend Engineering</div><div class="brTag alt">BE</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">APIs, databases, caching, message queues, scaling, and reliability engineering.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> API design</div><div class="brMetaItem"><span class="brDot"></span> Databases</div><div class="brMetaItem"><span class="brDot"></span> Scalability</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="uiux">
+        <div class="brTop"><div class="brName">UI/UX Design</div><div class="brTag">UX</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">User flows, interaction design, usability, design systems, and prototyping basics.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Design systems</div><div class="brMetaItem"><span class="brDot"></span> Prototyping</div><div class="brMetaItem"><span class="brDot"></span> UX research</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="db">
+        <div class="brTop"><div class="brName">Databases & SQL</div><div class="brTag alt">DB</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">SQL mastery, indexing, transactions, normalization, and query optimization.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Query practice</div><div class="brMetaItem"><span class="brDot"></span> Optimization</div><div class="brMetaItem"><span class="brDot"></span> Fundamentals</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="game">
+        <div class="brTop"><div class="brName">Game Development</div><div class="brTag">GAME</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">2D/3D fundamentals, physics, rendering basics, and building small games.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Unity basics</div><div class="brMetaItem"><span class="brDot"></span> Gameplay loops</div><div class="brMetaItem"><span class="brDot"></span> Projects</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+
+      <article class="brCard" data-branch="qa">
+        <div class="brTop"><div class="brName">Testing & QA Automation</div><div class="brTag alt">QA</div></div>
+        <div class="brCover" aria-hidden="true"></div>
+        <div class="brBody">Unit/integration tests, test strategy, automation frameworks, and CI testing.</div>
+        <div class="brMeta"><div class="brMetaItem"><span class="brDot"></span> Test patterns</div><div class="brMetaItem"><span class="brDot"></span> Automation</div><div class="brMetaItem"><span class="brDot"></span> CI testing</div></div>
+        <div class="brFoot"><button class="btn ghost" type="button" data-action="details">Explore</button><button class="btn" type="button" data-action="start">Start</button></div>
+      </article>
+    </section>
+
+    <!-- Coding Quiz Contest Test Panel -->
+    <section class="testPanelSection">
+      <div class="testPanelHeader">
+        <h2 class="testPanelTitle"><span class="testPanelIcon">⚡</span> Coding Quiz Contest Test Panel</h2>
+        <p class="testPanelDesc">Master your skills with comprehensive coding challenges and quizzes</p>
+      </div>
+      
+      <div class="testPanelFrame">
+        <div class="testPanelTabs">
+          <button class="testTab active" data-tab="practice">Practice Mode</button>
+          <button class="testTab" data-tab="contest">Contest Mode</button>
+          <button class="testTab" data-tab="mock">Mock Test</button>
+        </div>
+        
+        <div class="testPanelContent">
+          <div class="testTabContent active" id="practice">
+            <div class="testSidebar">
+              <div class="testSubjectList">
+                <h3>Select Topics</h3>
+                <div class="subjectItem">
+                  <input type="checkbox" id="algorithms" checked>
+                  <label for="algorithms">Algorithms & Data Structures</label>
+                  <span class="subjectCount">250 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="programming" checked>
+                  <label for="programming">Programming Fundamentals</label>
+                  <span class="subjectCount">180 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="webdev">
+                  <label for="webdev">Web Development</label>
+                  <span class="subjectCount">120 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="database">
+                  <label for="database">Database & SQL</label>
+                  <span class="subjectCount">95 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="systemdesign">
+                  <label for="systemdesign">System Design</label>
+                  <span class="subjectCount">85 questions</span>
+                </div>
+              </div>
+              
+              <div class="testSettings">
+                <h3>Test Settings</h3>
+                <div class="settingItem">
+                  <label>Difficulty Level</label>
+                  <select class="settingSelect">
+                    <option>Beginner</option>
+                    <option selected>Intermediate</option>
+                    <option>Advanced</option>
+                    <option>Expert</option>
+                  </select>
+                </div>
+                <div class="settingItem">
+                  <label>Questions per Test</label>
+                  <select class="settingSelect">
+                    <option>10</option>
+                    <option>20</option>
+                    <option selected>30</option>
+                    <option>50</option>
+                  </select>
+                </div>
+                <div class="settingItem">
+                  <label>Time Limit</label>
+                  <select class="settingSelect">
+                    <option>30 minutes</option>
+                    <option selected>45 minutes</option>
+                    <option>60 minutes</option>
+                    <option>90 minutes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testMain">
+              <div class="testInstructions">
+                <h3>Test Instructions</h3>
+                <ul>
+                  <li>Each question carries equal marks</li>
+                  <li>Negative marking: -1/4 for wrong answers</li>
+                  <li>You can navigate between questions freely</li>
+                  <li>Results will be shown immediately after submission</li>
+                  <li>Detailed solutions available after test completion</li>
+                </ul>
+              </div>
+              
+              <div class="testActions">
+                <button class="btn primary large">
+                  <span class="btnIcon">🚀</span>
+                  Start Practice Test
+                </button>
+                <button class="btn ghost large">
+                  <span class="btnIcon">📊</span>
+                  View Previous Results
+                </button>
+              </div>
+              
+              <div class="testStats">
+                <div class="statCard">
+                  <div class="statValue">1,250+</div>
+                  <div class="statLabel">Total Questions</div>
+                </div>
+                <div class="statCard">
+                  <div class="statValue">45K+</div>
+                  <div class="statLabel">Tests Taken</div>
+                </div>
+                <div class="statCard">
+                  <div class="statValue">89%</div>
+                  <div class="statLabel">Average Score</div>
+                </div>
+                <div class="statCard">
+                  <div class="statValue">4.8★</div>
+                  <div class="statLabel">User Rating</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testTabContent" id="contest">
+            <div class="contestInfo">
+              <h3>🏆 Contest Mode</h3>
+              <p>Compete with coders worldwide in real-time coding contests</p>
+              <div class="contestSchedule">
+                <div class="contestItem">
+                  <div class="contestTime">Daily 8:00 PM</div>
+                  <div class="contestName">Daily Coding Challenge</div>
+                  <div class="contestPrize">🏅 Top 100 Leaderboard</div>
+                </div>
+                <div class="contestItem">
+                  <div class="contestTime">Weekend 6:00 PM</div>
+                  <div class="contestName">Weekly Grand Contest</div>
+                  <div class="contestPrize">💰 Prize Pool $500</div>
+                </div>
+                <div class="contestItem">
+                  <div class="contestTime">Monthly 1st Sunday</div>
+                  <div class="contestName">Monthly Master Challenge</div>
+                  <div class="contestPrize">🏆 Grand Prize $2000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testTabContent" id="mock">
+            <div class="mockInfo">
+              <h3>📝 Mock Test Mode</h3>
+              <p>Simulate real coding interview environments with comprehensive mock tests</p>
+              <div class="mockTests">
+                <div class="mockTestCard">
+                  <h4>FAANG Interview Prep</h4>
+                  <p>45 questions • 90 minutes</p>
+                  <button class="btn primary">Start Mock Test</button>
+                </div>
+                <div class="mockTestCard">
+                  <h4>Startup Interview</h4>
+                  <p>30 questions • 60 minutes</p>
+                  <button class="btn primary">Start Mock Test</button>
+                </div>
+                <div class="mockTestCard">
+                  <h4>System Design Round</h4>
+                  <p>15 questions • 75 minutes</p>
+                  <button class="btn primary">Start Mock Test</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/testpanel.js"></script>
+  <script type="module" src="../branches/branches.js"></script>
+</body>
+</html>

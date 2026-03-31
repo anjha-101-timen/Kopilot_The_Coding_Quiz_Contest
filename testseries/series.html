@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Series • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../testseries/series.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub" id="seriesSub">Test Series</div>
+      </div>
+    </div>
+    <div class="tsSeriesActions">
+      <a class="btn ghost" href="../testseries/testseries.html">Back</a>
+      <a class="btn primary" href="../play/play.html">My Tests</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="tsdHead">
+      <h1 class="tsdTitle" id="seriesTitle">Test Series</h1>
+      <div class="tsdTabs" role="tablist" aria-label="Series sections">
+        <button class="tsdTab on" type="button" data-tab="test">Test</button>
+        <button class="tsdTab" type="button" data-tab="study">Study Material</button>
+        <button class="tsdTab" type="button" data-tab="ann">Announcements</button>
+      </div>
+    </section>
+
+    <section class="tsdPanel" id="panel-test">
+      <div class="tsdPanelTop">
+        <div class="tsdSubTabs" role="tablist" aria-label="Test lists">
+          <button class="tsdSubTab on" type="button" data-subtab="recommended">Recommended Tests</button>
+          <button class="tsdSubTab" type="button" data-subtab="all">All Tests</button>
+          <button class="tsdSubTab" type="button" data-subtab="problem">Per Problem</button>
+          <button class="tsdSubTab" type="button" data-subtab="bookmarks">🔖 Bookmarks</button>
+        </div>
+
+        <div class="tsdFilterWrap">
+          <button class="tsdFilterBtn" type="button" id="tsdFilterBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="tsdFilterLabel">All (Default)</span>
+            <span class="tsdFilterIcon" aria-hidden="true">⏷</span>
+          </button>
+          <div class="tsdFilterMenu" id="tsdFilterMenu" role="listbox" aria-label="Filter tests">
+            <button class="tsdFilterItem on" type="button" role="option" data-filter="all" aria-selected="true">All (Default)</button>
+            <button class="tsdFilterItem" type="button" role="option" data-filter="attempted" aria-selected="false">Attempted</button>
+            <button class="tsdFilterItem" type="button" role="option" data-filter="non" aria-selected="false">Non-Attempted</button>
+            <button class="tsdFilterItem" type="button" role="option" data-filter="resume" aria-selected="false">Resume</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tsdPagerBar" id="tsdPagerBar" style="display:none">
+        <div class="tsdPagerRow">
+          <div class="tsdPagerMeta" id="tsdPagerMeta"></div>
+          <div class="tsdPagerBtns">
+            <button class="tsdPagerBtn" id="tsdPagerPrev" type="button">Prev</button>
+            <button class="tsdPagerBtn" id="tsdPagerNext" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tsdProblemBar" id="tsdProblemBar" style="display:none">
+        <div class="tsdProblemRow">
+          <input class="tsdProblemSearch" id="tsdProblemSearch" type="search" placeholder="Search by title or slug (current page)" />
+          <select class="tsdProblemSelect" id="tsdProblemDifficulty">
+            <option value="">All Difficulties</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <select class="tsdProblemSelect" id="tsdProblemCompany">
+            <option value="">All Companies</option>
+            <option value="microsoft">Microsoft</option>
+            <option value="google">Google</option>
+            <option value="amazon">Amazon</option>
+            <option value="apple">Apple</option>
+            <option value="meta">Meta</option>
+          </select>
+          <select class="tsdProblemSelect" id="tsdProblemTopic">
+            <option value="">All Topics</option>
+            <option value="array">Array</option>
+            <option value="string">String</option>
+            <option value="hash-table">Hash Table</option>
+            <option value="dynamic-programming">Dynamic Programming</option>
+            <option value="tree">Tree</option>
+            <option value="graph">Graph</option>
+            <option value="binary-search">Binary Search</option>
+            <option value="sorting">Sorting</option>
+            <option value="greedy">Greedy</option>
+            <option value="backtracking">Backtracking</option>
+            <option value="linked-list">Linked List</option>
+            <option value="stack">Stack</option>
+            <option value="queue">Queue</option>
+            <option value="heap">Heap</option>
+            <option value="trie">Trie</option>
+            <option value="bit-manipulation">Bit Manipulation</option>
+            <option value="math">Math</option>
+            <option value="two-pointers">Two Pointers</option>
+            <option value="sliding-window">Sliding Window</option>
+            <option value="divide-and-conquer">Divide and Conquer</option>
+          </select>
+          <div class="tsdProblemBtns">
+            <button class="tsdProblemBtn" id="tsdProblemPrev" type="button">Prev</button>
+            <button class="tsdProblemBtn" id="tsdProblemNext" type="button">Next</button>
+          </div>
+        </div>
+        <div class="tsdProblemMeta" id="tsdProblemMeta"></div>
+      </div>
+
+      <div class="tsdCards" id="tsdCards"></div>
+    </section>
+
+    <section class="tsdPanel isHidden" id="panel-study">
+      <div class="tsdEmpty">
+        <h2 class="tsdEmptyTitle">Study Material</h2>
+        <div class="tsdEmptySub">Prototype: study PDFs/notes/links will appear here for this series.</div>
+      </div>
+    </section>
+
+    <section class="tsdPanel isHidden" id="panel-ann">
+      <div class="tsdEmpty">
+        <h2 class="tsdEmptyTitle">Announcements</h2>
+        <div class="tsdEmptySub">Prototype: important updates, schedule changes, and new tests will appear here.</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../testseries/series.js"></script>
+</body>
+</html>

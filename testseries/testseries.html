@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coders Tester • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../testseries/testseries.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub">DSA • Test Series</div>
+      </div>
+    </div>
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="tsHead">
+      <div>
+        <h1 class="tsTitle">[Coders Tester]</h1>
+        <div class="tsSub">// Premium practice series for coding interviews and CP with modern cards and quick actions {}()<></div>
+      </div>
+      <div class="tsActions">
+        <a class="btn" href="../read/read.html">Explore Exams</a>
+        <a class="btn primary" href="../play/play.html">My Tests</a>
+      </div>
+    </section>
+
+    <section class="tsGrid" id="tsGrid">
+      <article class="tsCard featured" data-tier="pro" data-series="super2500">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">Super 2500 Pro Plus</div>
+          <div class="tsBadge">PRO+</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">Full DSA + CP track with topic-wise tests, mixed mocks, analytics, and revision sprints.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> 2500+ curated questions</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Detailed solutions</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Weekly performance insights</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn primary" type="button" data-action="buy">Buy Now</button>
+        </div>
+      </article>
+
+      <article class="tsCard" data-tier="pro" data-series="leetcode">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">LeetCode Concept Packs</div>
+          <div class="tsBadge">MCQ</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">LeetCode-style concepts as objective MCQs with topic + difficulty filters for quick revision.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> Difficulty filters: Easy/Medium/Hard</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Topic filters: Arrays, Strings, DP, Graph, etc.</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Fast attempt packs (no coding judge)</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn" type="button" data-action="start" disabled style="opacity:.55; cursor:not-allowed">Start</button>
+        </div>
+      </article>
+
+      <article class="tsCard" data-tier="pro" data-series="leetcode" data-subtab="problem">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">super_4000_leet_problems</div>
+          <div class="tsBadge">LIST</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">All LeetCode problems as individual test cards (10 objective MCQs per problem) with pagination.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> 3874 problem cards</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Each card has 10 questions</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Prev/Next navigation (40 cards/page)</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn" type="button" data-action="start" disabled style="opacity:.55; cursor:not-allowed">Start</button>
+        </div>
+      </article>
+
+      <article class="tsCard" data-tier="club" data-series="devclub">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">Developers Club</div>
+          <div class="tsBadge alt">CLUB</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">Community-driven practice with contests, leaderboards, and fast feedback loops.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> Weekly live contests</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Peer discussions</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Rank boosters</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn" type="button" data-action="join">Join</button>
+        </div>
+      </article>
+
+      <article class="tsCard" data-tier="coding" data-series="foundations">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">Code Foundations</div>
+          <div class="tsBadge">CORE</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">Daily drills for DS/Algo + C/CPP essentials aligned to interview + CP patterns.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> Daily streak system</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Micro tests</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Speed practice</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn" type="button" data-action="start">Start</button>
+        </div>
+      </article>
+
+      <article class="tsCard" data-tier="aptitude" data-series="sprint">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">Logic & Speed Sprint</div>
+          <div class="tsBadge alt">SPRINT</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">Compact aptitude series with timed tests and accuracy boosters.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> Timed sections</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Smart review</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Weakness map</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn" type="button" data-action="start">Start</button>
+        </div>
+      </article>
+
+      <article class="tsCard" data-tier="mock" data-series="mockleague">
+        <div class="tsCardTop">
+          <div class="tsCardTitle">Full Mock League</div>
+          <div class="tsBadge">MOCK</div>
+        </div>
+        <div class="tsCover" aria-hidden="true"></div>
+        <div class="tsCardBody">Full-length mocks with percentile, rank trends, and detailed analysis.</div>
+        <div class="tsMeta">
+          <div class="tsMetaItem"><span class="tsDot"></span> Rank prediction</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Topic coverage</div>
+          <div class="tsMetaItem"><span class="tsDot"></span> Adaptive sets</div>
+        </div>
+        <div class="tsCardFoot">
+          <button class="btn ghost" type="button" data-action="details">Explore</button>
+          <button class="btn" type="button" data-action="start">Start</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="tsSeries isHidden" id="proPlusSeries" aria-label="Super 2500 Pro Plus Test Series">
+      <div class="tsSeriesHead">
+        <div>
+          <h2 class="tsSeriesTitle">Super 2500 Pro Plus • Test Series</h2>
+          <div class="tsSeriesSub">Choose a category, pick a test card, and start instantly. Prototype UI only.</div>
+        </div>
+        <div class="tsSeriesTools">
+          <div class="tsPills" id="tsCategoryPills" role="tablist" aria-label="Test categories"></div>
+        </div>
+      </div>
+
+      <div class="tsSeriesGrid" id="tsSeriesGrid"></div>
+    </section>
+
+    <!-- Coding Quiz Contest Test Panel -->
+    <section class="testPanelSection">
+      <div class="testPanelHeader">
+        <h2 class="testPanelTitle"><span class="testPanelIcon">⚡</span> Coding Quiz Contest Test Panel</h2>
+        <p class="testPanelDesc">Master your skills with comprehensive coding challenges and quizzes</p>
+      </div>
+      
+      <div class="testPanelFrame">
+        <div class="testPanelTabs">
+          <button class="testTab active" data-tab="practice">Practice Mode</button>
+          <button class="testTab" data-tab="contest">Contest Mode</button>
+          <button class="testTab" data-tab="mock">Mock Test</button>
+        </div>
+        
+        <div class="testPanelContent">
+          <div class="testTabContent active" id="practice">
+            <div class="testSidebar">
+              <div class="testSubjectList">
+                <h3>Select Topics</h3>
+                <div class="subjectItem">
+                  <input type="checkbox" id="dsa" checked>
+                  <label for="dsa">Data Structures & Algorithms</label>
+                  <span class="subjectCount">450 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="problemsolving" checked>
+                  <label for="problemsolving">Problem Solving</label>
+                  <span class="subjectCount">320 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="competitive">
+                  <label for="competitive">Competitive Programming</label>
+                  <span class="subjectCount">280 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="codinginterview">
+                  <label for="codinginterview">Coding Interview Prep</label>
+                  <span class="subjectCount">200 questions</span>
+                </div>
+                <div class="subjectItem">
+                  <input type="checkbox" id="optimization">
+                  <label for="optimization">Code Optimization</label>
+                  <span class="subjectCount">150 questions</span>
+                </div>
+              </div>
+              
+              <div class="testSettings">
+                <h3>Test Settings</h3>
+                <div class="settingItem">
+                  <label>Difficulty Level</label>
+                  <select class="settingSelect">
+                    <option>Beginner</option>
+                    <option selected>Intermediate</option>
+                    <option>Advanced</option>
+                    <option>Expert</option>
+                  </select>
+                </div>
+                <div class="settingItem">
+                  <label>Questions per Test</label>
+                  <select class="settingSelect">
+                    <option>10</option>
+                    <option>20</option>
+                    <option selected>30</option>
+                    <option>50</option>
+                  </select>
+                </div>
+                <div class="settingItem">
+                  <label>Time Limit</label>
+                  <select class="settingSelect">
+                    <option>30 minutes</option>
+                    <option selected>45 minutes</option>
+                    <option>60 minutes</option>
+                    <option>90 minutes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testMain">
+              <div class="testInstructions">
+                <h3>Test Instructions</h3>
+                <ul>
+                  <li>Each question carries equal marks</li>
+                  <li>Negative marking: -1/4 for wrong answers</li>
+                  <li>You can navigate between questions freely</li>
+                  <li>Results will be shown immediately after submission</li>
+                  <li>Detailed solutions available after test completion</li>
+                </ul>
+              </div>
+              
+              <div class="testActions">
+                <button class="btn primary large">
+                  <span class="btnIcon">🚀</span>
+                  Start Practice Test
+                </button>
+                <button class="btn ghost large">
+                  <span class="btnIcon">📊</span>
+                  View Previous Results
+                </button>
+              </div>
+              
+              <div class="testStats">
+                <div class="statCard">
+                  <div class="statValue">2,500+</div>
+                  <div class="statLabel">Total Questions</div>
+                </div>
+                <div class="statCard">
+                  <div class="statValue">78K+</div>
+                  <div class="statLabel">Tests Taken</div>
+                </div>
+                <div class="statCard">
+                  <div class="statValue">92%</div>
+                  <div class="statLabel">Average Score</div>
+                </div>
+                <div class="statCard">
+                  <div class="statValue">4.9★</div>
+                  <div class="statLabel">User Rating</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testTabContent" id="contest">
+            <div class="contestInfo">
+              <h3>🏆 Contest Mode</h3>
+              <p>Compete with coders worldwide in real-time coding contests</p>
+              <div class="contestSchedule">
+                <div class="contestItem">
+                  <div class="contestTime">Daily 9:00 PM</div>
+                  <div class="contestName">Daily Coding Challenge</div>
+                  <div class="contestPrize">🏅 Top 50 Leaderboard</div>
+                </div>
+                <div class="contestItem">
+                  <div class="contestTime">Weekend 7:00 PM</div>
+                  <div class="contestName">Weekly Grand Contest</div>
+                  <div class="contestPrize">💰 Prize Pool $1000</div>
+                </div>
+                <div class="contestItem">
+                  <div class="contestTime">Monthly 1st Saturday</div>
+                  <div class="contestName">Monthly Master Challenge</div>
+                  <div class="contestPrize">🏆 Grand Prize $5000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testTabContent" id="mock">
+            <div class="mockInfo">
+              <h3>📝 Mock Test Mode</h3>
+              <p>Simulate real coding interview environments with comprehensive mock tests</p>
+              <div class="mockTests">
+                <div class="mockTestCard">
+                  <h4>FAANG Interview Prep</h4>
+                  <p>50 questions • 120 minutes</p>
+                  <button class="btn primary">Start Mock Test</button>
+                </div>
+                <div class="mockTestCard">
+                  <h4>Product-Based Companies</h4>
+                  <p>40 questions • 90 minutes</p>
+                  <button class="btn primary">Start Mock Test</button>
+                </div>
+                <div class="mockTestCard">
+                  <h4>Algorithm Master Round</h4>
+                  <p>25 questions • 100 minutes</p>
+                  <button class="btn primary">Start Mock Test</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/testpanel.js"></script>
+  <script type="module" src="../testseries/testseries.js"></script>
+</body>
+</html>

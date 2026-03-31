@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Test Analysis</title>
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="../shared/nav.css">
+    <link rel="stylesheet" href="../testseries/series.css">
+    <style>
+        .analyze-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .analyze-header {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .score-display {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .correct { color: #4ade80; }
+        .incorrect { color: #ef4444; }
+        .skipped { color: #fbbf24; }
+        
+        .performance-chart {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .question-breakdown {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .breakdown-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4ade80;
+            transition: all 0.3s ease;
+        }
+        
+        .breakdown-item.incorrect {
+            border-left-color: #ef4444;
+        }
+        
+        .breakdown-item.skipped {
+            border-left-color: #fbbf24;
+        }
+        
+        .breakdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #4ade80;
+        }
+        
+        .question-type {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        .question-text {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .answer-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .user-answer, .correct-answer {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .user-answer {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .correct-answer {
+            background: rgba(74, 222, 128, 0.2);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+        
+        .time-spent {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .action-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .improvement-tips {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .tip-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .tip-icon {
+            font-size: 24px;
+            color: #4ade80;
+        }
+        
+        .tip-content {
+            flex: 1;
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .tip-text {
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .analyze-container {
+                padding: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .answer-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="analyze-container">
+        <div class="analyze-header">
+            <h1 id="testTitle">Test Analysis</h1>
+            <div class="score-display" id="scoreDisplay">0%</div>
+            <div id="testDate">Completed on: Loading...</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value correct" id="correctCount">0</div>
+                <div class="stat-label">Correct Answers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value incorrect" id="incorrectCount">0</div>
+                <div class="stat-label">Incorrect Answers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value skipped" id="skippedCount">0</div>
+                <div class="stat-label">Skipped Questions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="timeSpent">00:00</div>
+                <div class="stat-label">Total Time</div>
+            </div>
+        </div>
+
+        <div class="performance-chart">
+            <h2>Performance Overview</h2>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="improvement-tips">
+            <h2>Improvement Tips</h2>
+            <div id="tipsContainer">
+                <!-- Tips will be generated here -->
+            </div>
+        </div>
+
+        <div class="question-breakdown">
+            <h2>Question Breakdown</h2>
+            <div id="breakdownContainer">
+                <!-- Question breakdown will be generated here -->
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="action-btn" onclick="retakeTest()">Retake Test</button>
+            <button class="action-btn" onclick="reviewMistakes()">Review Mistakes</button>
+            <button class="action-btn" onclick="goBack()">Back to Tests</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { getTestById } from '../leet_test_integration.js';
+        import { getDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { toast } from '../shared/ui.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBTXNdFPIkgRAMSN8FYvSgaiyQ0ylz-6Ko",
+            authDomain: "coding-quiz-contest-platform.firebaseapp.com",
+            projectId: "coding-quiz-contest-platform",
+            storageBucket: "coding-quiz-contest-platform.firebasestorage.app",
+            messagingSenderId: "823102752389",
+            appId: "1:823102752389:web:4e3db47f8b6234ae1c8bec",
+            measurementId: "G-3YHZX8QDB9"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let sessionData = null;
+        let testData = null;
+
+        // Initialize analysis
+        async function initializeAnalysis() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const sessionId = urlParams.get('session');
+                
+                if (!sessionId) {
+                    toast('Invalid session', 'error');
+                    return;
+                }
+
+                // Get session data
+                const sessionDoc = await getDoc(doc(db, "leet_test_sessions", sessionId));
+                if (sessionDoc.exists()) {
+                    sessionData = sessionDoc.data();
+                } else {
+                    toast('Session not found', 'error');
+                    return;
+                }
+
+                // Get test data
+                testData = await getTestById(sessionData.test_id);
+                if (!testData) {
+                    toast('Test not found', 'error');
+                    return;
+                }
+
+                // Generate analysis
+                generateAnalysis();
+                
+            } catch (error) {
+                console.error('Error initializing analysis:', error);
+                toast('Failed to load analysis', 'error');
+            }
+        }
+
+        function generateAnalysis() {
+            // Update header
+            document.getElementById('testTitle').textContent = `${testData.problem_name} - Analysis`;
+            document.getElementById('scoreDisplay').textContent = `${sessionData.results.score}%`;
+            document.getElementById('testDate').textContent = `Completed on: ${new Date(sessionData.completed_at).toLocaleString()}`;
+
+            // Update stats
+            document.getElementById('correctCount').textContent = sessionData.results.correct_answers;
+            document.getElementById('incorrectCount').textContent = sessionData.results.incorrect_answers;
+            document.getElementById('skippedCount').textContent = sessionData.results.skipped;
+            document.getElementById('timeSpent').textContent = formatTime(sessionData.results.time_spent);
+
+            // Generate question breakdown
+            generateQuestionBreakdown();
+
+            // Generate improvement tips
+            generateImprovementTips();
+
+            // Generate performance chart
+            generatePerformanceChart();
+        }
+
+        function generateQuestionBreakdown() {
+            const container = document.getElementById('breakdownContainer');
+            container.innerHTML = '';
+
+            sessionData.results.question_breakdown.forEach((breakdown, index) => {
+                const question = testData.questions.find(q => q.id === breakdown.question_id);
+                if (!question) return;
+
+                const item = document.createElement('div');
+                item.className = `breakdown-item ${breakdown.correct ? 'correct' : breakdown.user_answer ? 'incorrect' : 'skipped'}`;
+
+                const userAnswerText = formatAnswer(question, breakdown.user_answer);
+                const correctAnswerText = formatAnswer(question, breakdown.correct_answer);
+
+                item.innerHTML = `
+                    <div class="breakdown-header">
+                        <span class="question-number">Question ${index + 1}</span>
+                        <span class="question-type">${question.type.toUpperCase()}</span>
+                    </div>
+                    <div class="question-text">${question.question}</div>
+                    ${breakdown.user_answer ? `
+                        <div class="answer-comparison">
+                            <div class="user-answer">
+                                <strong>Your Answer:</strong> ${userAnswerText}
+                            </div>
+                            <div class="correct-answer">
+                                <strong>Correct Answer:</strong> ${correctAnswerText}
+                            </div>
+                        </div>
+                    ` : '<div class="answer-comparison"><div class="skipped">Question was skipped</div></div>'}
+                    <div class="time-spent">Time spent: ${formatTime(breakdown.time_spent)}</div>
+                `;
+
+                container.appendChild(item);
+            });
+        }
+
+        function formatAnswer(question, answer) {
+            if (!answer) return 'Not answered';
+
+            switch (question.type) {
+                case 'mcq':
+                case 'true_false':
+                case 'assertion_reason':
+                    return question.options[answer] || answer;
+                case 'msq':
+                    if (Array.isArray(answer)) {
+                        return answer.map(idx => question.options[idx]).join(', ');
+                    }
+                    return answer;
+                case 'nat':
+                case 'fill_blank':
+                case 'one_word':
+                    return answer;
+                case 'matching':
+                    if (Array.isArray(answer)) {
+                        return answer.map(match => `${match.left} → ${match.right}`).join(', ');
+                    }
+                    return answer;
+                default:
+                    return answer;
+            }
+        }
+
+        function generateImprovementTips() {
+            const container = document.getElementById('tipsContainer');
+            container.innerHTML = '';
+
+            const tips = analyzePerformance();
+            
+            tips.forEach(tip => {
+                const tipItem = document.createElement('div');
+                tipItem.className = 'tip-item';
+                
+                tipItem.innerHTML = `
+                    <div class="tip-icon">${tip.icon}</div>
+                    <div class="tip-content">
+                        <div class="tip-title">${tip.title}</div>
+                        <div class="tip-text">${tip.text}</div>
+                    </div>
+                `;
+                
+                container.appendChild(tipItem);
+            });
+        }
+
+        function analyzePerformance() {
+            const tips = [];
+            const results = sessionData.results;
+
+            // Analyze by question type
+            const typePerformance = {};
+            results.question_breakdown.forEach(breakdown => {
+                const question = testData.questions.find(q => q.id === breakdown.question_id);
+                if (question) {
+                    if (!typePerformance[question.type]) {
+                        typePerformance[question.type] = { correct: 0, total: 0 };
+                    }
+                    typePerformance[question.type].total++;
+                    if (breakdown.correct) {
+                        typePerformance[question.type].correct++;
+                    }
+                }
+            });
+
+            // Generate tips based on performance
+            Object.entries(typePerformance).forEach(([type, perf]) => {
+                const accuracy = (perf.correct / perf.total) * 100;
+                
+                if (accuracy < 50) {
+                    switch (type) {
+                        case 'mcq':
+                            tips.push({
+                                icon: '📚',
+                                title: 'Improve MCQ Performance',
+                                text: 'Practice eliminating incorrect options first. Look for keywords in questions and use the process of elimination.'
+                            });
+                            break;
+                        case 'msq':
+                            tips.push({
+                                icon: '✅',
+                                title: 'Master Multiple Select Questions',
+                                text: 'Read all options carefully. Remember that multiple options can be correct. Don\'t rush through these questions.'
+                            });
+                            break;
+                        case 'nat':
+                            tips.push({
+                                icon: '🔢',
+                                title: 'Work on Numerical Problems',
+                                text: 'Practice mathematical calculations and estimations. Double-check your computations before submitting.'
+                            });
+                            break;
+                    }
+                }
+            });
+
+            // Time management tips
+            if (results.time_spent > 1800000) { // 30 minutes
+                tips.push({
+                    icon: '⏰',
+                    title: 'Improve Time Management',
+                    text: 'You took more than 30 minutes. Practice with timed tests to improve your speed without sacrificing accuracy.'
+                });
+            }
+
+            // General tips
+            if (results.score < 70) {
+                tips.push({
+                    icon: '🎯',
+                    title: 'Focus on Fundamentals',
+                    text: 'Review core concepts and fundamentals. A strong foundation is key to solving complex problems.'
+                });
+            }
+
+            if (tips.length === 0) {
+                tips.push({
+                    icon: '🌟',
+                    title: 'Excellent Performance!',
+                    text: 'Great job! Keep practicing and try more challenging problems to further improve your skills.'
+                });
+            }
+
+            return tips;
+        }
+
+        function generatePerformanceChart() {
+            const canvas = document.getElementById('performanceChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Simple bar chart implementation
+            const data = sessionData.results.question_breakdown.map((breakdown, index) => ({
+                x: index + 1,
+                y: breakdown.correct ? 1 : 0
+            }));
+
+            // Clear canvas
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            // Draw simple chart
+            const barWidth = canvas.width / data.length;
+            const maxHeight = canvas.height - 40;
+
+            data.forEach((point, index) => {
+                const barHeight = point.y * maxHeight;
+                const x = index * barWidth;
+                const y = canvas.height - barHeight - 20;
+
+                ctx.fillStyle = point.y ? '#4ade80' : '#ef4444';
+                ctx.fillRect(x + 5, y, barWidth - 10, barHeight);
+
+                // Draw question number
+                ctx.fillStyle = '#fff';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(point.x, x + barWidth / 2, canvas.height - 5);
+            });
+        }
+
+        function formatTime(milliseconds) {
+            const totalSeconds = Math.floor(milliseconds / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function retakeTest() {
+            if (testData) {
+                window.location.href = new URL(`../testseries/series.html?series=leetcode&test=${encodeURIComponent(testData.id)}`, import.meta.url).href;
+            }
+        }
+
+        function reviewMistakes() {
+            const incorrectQuestions = sessionData.results.question_breakdown
+                .filter(breakdown => !breakdown.correct && breakdown.user_answer);
+            
+            if (incorrectQuestions.length === 0) {
+                toast('No mistakes to review!', 'success');
+                return;
+            }
+
+            // Scroll to first incorrect question
+            const incorrectItems = document.querySelectorAll('.breakdown-item.incorrect');
+            if (incorrectItems.length > 0) {
+                incorrectItems[0].scrollIntoView({ behavior: 'smooth' });
+                toast('Reviewing your mistakes', 'info');
+            }
+        }
+
+        function goBack() {
+            window.location.href = new URL(`../testseries/series.html?series=leetcode`, import.meta.url).href;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeAnalysis);
+    </script>
+</body>
+</html>

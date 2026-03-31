@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../results/results.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Score Analysis • Attempt History</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="../index.html">Home</a>
+      <a class="navLink" href="../read/read.html">Exams</a>
+      <a class="navLink" href="../create/create.html">Create</a>
+      <a class="navLink" href="../leaderboard/leaderboard.html">Leaderboard</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="resHead card">
+      <div>
+        <div class="row" style="gap:10px; flex-wrap:wrap">
+          <a class="btn ghost" id="btnBack" href="../read/read.html">← Back</a>
+          <div class="kbd" id="examChip">Loading…</div>
+          <div class="kbd" id="cpChip">CP 0</div>
+          <div class="kbd" id="questionTypeChip">Mixed Types</div>
+        </div>
+        <div class="resTitle" id="examTitle">Loading…</div>
+        <div class="resMeta" id="examMeta"></div>
+      </div>
+
+      <div class="resScore">
+        <div class="scoreMain" id="scoreMain">0/0</div>
+        <div class="scorePercent" id="scorePercent">0%</div>
+        <div class="scoreGrade" id="scoreGrade">-</div>
+      </div>
+    </section>
+
+    <!-- Question Type Analysis -->
+    <section class="resSection card">
+      <div class="secTitle">📊 Question Type Analysis</div>
+      <div class="typeAnalysis" id="typeAnalysis">
+        <div class="typeCard">
+          <div class="typeLabel">MCQ</div>
+          <div class="typeScore" id="mcqScore">0/0</div>
+          <div class="typePercent" id="mcqPercent">0%</div>
+        </div>
+        <div class="typeCard">
+          <div class="typeLabel">MSQ</div>
+          <div class="typeScore" id="msqScore">0/0</div>
+          <div class="typePercent" id="msqPercent">0%</div>
+        </div>
+        <div class="typeCard">
+          <div class="typeLabel">True/False</div>
+          <div class="typeScore" id="tfScore">0/0</div>
+          <div class="typePercent" id="tfPercent">0%</div>
+        </div>
+        <div class="typeCard">
+          <div class="typeLabel">Fill in Blank</div>
+          <div class="typeScore" id="fibScore">0/0</div>
+          <div class="typePercent" id="fibPercent">0%</div>
+        </div>
+        <div class="typeCard">
+          <div class="typeLabel">Match Following</div>
+          <div class="typeScore" id="mtfScore">0/0</div>
+          <div class="typePercent" id="mtfPercent">0%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Time Analysis -->
+    <section class="resSection card">
+      <div class="secTitle">⏱️ Time Analysis</div>
+      <div class="timeAnalysis" id="timeAnalysis">
+        <div class="timeCard">
+          <div class="timeLabel">Total Time</div>
+          <div class="timeValue" id="totalTime">0m 0s</div>
+        </div>
+        <div class="timeCard">
+          <div class="timeLabel">Avg per Question</div>
+          <div class="timeValue" id="avgTime">0s</div>
+        </div>
+        <div class="timeCard">
+          <div class="timeLabel">Fastest Question</div>
+          <div class="timeValue" id="fastestTime">-</div>
+        </div>
+        <div class="timeCard">
+          <div class="timeLabel">Slowest Question</div>
+          <div class="timeValue" id="slowestTime">-</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resShell">
+      <section class="resMain">
+        <div class="panel cardlike resBlock">
+          <div class="small">Result Summary</div>
+          <div class="scoreCard" id="scoreCard"></div>
+        </div>
+
+        <div class="panel cardlike resBlock">
+          <div class="resBlockHead">
+            <div class="resBlockTitle">Your Progress</div>
+            <a class="miniLink" id="btnDetail" href="#details">View Detailed Analysis</a>
+          </div>
+          <div class="progressGrid" id="progressGrid"></div>
+        </div>
+
+        <div class="panel cardlike resBlock">
+          <div class="resBlockTitle">Attempt Wise Comparison</div>
+          <div id="chartHost"></div>
+          <div class="cmpGrid" id="cmpGrid" aria-label="Attempt comparison analytics">
+            <div class="cmpGridItem">
+              <div class="chartHost chartLine"></div>
+            </div>
+            <div class="cmpGridItem">
+              <div class="chartHost chartBar"></div>
+            </div>
+            <div class="cmpGridItem">
+              <div class="chartHost chartScatter"></div>
+            </div>
+            <div class="cmpGridItem">
+              <div class="chartHost chartHistogram"></div>
+            </div>
+            <div class="cmpGridItem">
+              <div class="chartHost chartPie"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel cardlike resBlock" id="qpattern">
+          <div class="resBlockHead">
+            <div class="resBlockTitle">Question Pattern Analysis</div>
+            <a class="miniLink" href="#qpattern">Probability • Difficulty • Type • Marks</a>
+          </div>
+          <div id="qAnalysisHost"></div>
+        </div>
+
+        <div class="panel cardlike resBlock" id="details">
+          <div class="resBlockHead">
+            <div class="resBlockTitle">Attempt Details</div>
+            <div class="small" id="attemptMeta"></div>
+          </div>
+          <div class="statusGrid" id="statusGrid"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../results/results.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

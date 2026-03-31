@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../create/create.css" />
+</head>
+<body class="page-create">
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div>
+        <div class="brandTitle"><span class="logo-code">&lt;/&gt;</span> <span class="word-coding">Coding</span> <span class="word-quiz">Quiz</span> <span class="word-contest">Contest</span></div>
+        <div class="brandSub">Create. Curate. Compete.</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="../index.html">Home</a>
+      <a class="navLink" href="../create/create.html">Create</a>
+      <a class="navLink" href="../read/read.html">Read</a>
+      <a class="navLink" href="../update/update.html">Update</a>
+      <a class="navLink" href="../delete/delete.html">Delete</a>
+      <a class="navLink" href="../leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="../about/about.html">About</a>
+      <a class="navLink" href="../contact/contact.html">Contact</a>
+      <a class="navLink" href="../refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="pageHead">
+      <div>
+        <h1 class="pageTitle">Create Examination</h1>
+        <div class="pageSub">First save your exam configuration, then frame questions strictly under that exam.</div>
+      </div>
+      <div class="row">
+        <a class="btn ghost" href="../read/read.html">
+          <span class="btnIcon">📚</span>
+          Browse
+        </a>
+        <button class="btn primary" id="btnSave" disabled>
+          <span class="btnIcon">🚀</span>
+          Publish
+        </button>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="panel cardlike">
+        <div class="panelTitle">Select Existing Examination</div>
+        <div class="panelSub">You can create multiple exams and frame questions under each one</div>
+        
+        <div class="row" style="align-items:end; margin-top: 20px;">
+          <div class="field" style="min-width:min(520px, 100%)">
+            <div class="label">Existing Exam</div>
+            <select class="select" id="examSelect"></select>
+            <div class="small">Multiple exams supported with separate question banks</div>
+          </div>
+          <div class="row">
+            <button class="btn" id="btnUseExam">
+              <span class="btnIcon">✓</span>
+              Use Exam
+            </button>
+            <button class="btn ghost" id="btnNewExam">
+              <span class="btnIcon">+</span>
+              Create New
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike" id="examPanel">
+        <div class="panelTitle">Create New Examination</div>
+        <div class="panelSub">Make it customizable: marks, schedule, audience levels, sections, semesters, total questions, and per-question timing</div>
+
+        <div class="formGrid" style="margin-top:20px">
+          <div class="field">
+            <div class="label">Examination Title</div>
+            <input class="input" id="examTitle" placeholder="e.g., DSA Sprint, Web Dev Weekly" />
+          </div>
+          <div class="field">
+            <div class="label">Academic Branch</div>
+            <input class="input" id="academicBranch" placeholder="e.g., CS, DA" />
+          </div>
+          <div class="field">
+            <div class="label">Examination Code</div>
+            <input class="input" id="examCode" placeholder="e.g., CQC_DSA_001" />
+          </div>
+          <div class="field"></div>
+
+          <div class="field">
+            <div class="label">Subject</div>
+            <input class="input" id="subject" placeholder="e.g., Algorithms" />
+          </div>
+          <div class="field">
+            <div class="label">Topic</div>
+            <input class="input" id="topic" placeholder="e.g., Sorting" />
+          </div>
+
+          <div class="field">
+            <div class="label">Difficulty Level</div>
+            <select class="select" id="examDifficulty"></select>
+          </div>
+          <div class="field">
+            <div class="label">Total Questions (1–250)</div>
+            <div class="pickGrid" id="totalQuestionsGrid"></div>
+          </div>
+
+          <div class="field">
+            <div class="label">Duration: Hours (1–5)</div>
+            <div class="seg" id="durationHours"></div>
+          </div>
+          <div class="field">
+            <div class="label">Duration: Minutes (0–59)</div>
+            <div class="pickGrid" id="durationMinutesGrid"></div>
+          </div>
+
+          <div class="field">
+            <div class="label">Positive Marks per Answer</div>
+            <input class="input" id="positiveMarks" type="number" step="0.25" value="2" />
+          </div>
+          <div class="field">
+            <div class="label">Negative Marks per Answer</div>
+            <input class="input" id="negativeMarks" type="number" step="0.25" value="0.5" />
+          </div>
+
+          <div class="field">
+            <div class="label">Scheduled Date</div>
+            <input class="input" id="scheduledDate" type="date" />
+          </div>
+          <div class="field">
+            <div class="label">Scheduled Time</div>
+            <input class="input" id="scheduledTime" type="time" />
+          </div>
+
+          <div class="field span2">
+            <div class="label">Academic Levels</div>
+            <div class="chipGrid" id="academicLevels"></div>
+          </div>
+
+          <div class="field span2">
+            <div class="label">Assigned Sections</div>
+            <div class="row" style="gap:12px; margin-top:8px">
+              <button class="btn" id="secModeAlpha" type="button">
+                <span class="btnIcon">A-Z</span>
+                Alphabetic (A–Z)
+              </button>
+              <button class="btn ghost" id="secModeNumeric" type="button">
+                <span class="btnIcon">1-99</span>
+                Numeric (1–99)
+              </button>
+            </div>
+            <div class="chipGrid" id="sections" style="margin-top:12px"></div>
+          </div>
+
+          <div class="field span2">
+            <div class="label">Academic Semesters</div>
+            <div class="chipGrid" id="semesters"></div>
+          </div>
+
+          <div class="field span2">
+            <div class="label">Time Per Question: Minutes (0–10)</div>
+            <div class="seg" id="tpqMinutes"></div>
+          </div>
+
+          <div class="field span2">
+            <div class="label">Time Per Question: Seconds (0–59)</div>
+            <div class="pickGrid" id="tpqSecondsGrid"></div>
+          </div>
+
+          <div class="field span2">
+            <div class="label">Examination Description (Optional)</div>
+            <textarea class="textarea" id="examDescription" placeholder="Provide additional details about the examination…"></textarea>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:24px">
+          <button class="btn primary large" id="btnSaveExam" type="button">
+            <span class="btnIcon">💾</span>
+            Save Examination Configuration
+          </button>
+          <div class="spacer"></div>
+          <div class="pill" id="activeExam" style="display:none">
+            <span class="pulse"></span>
+            <span class="pillText" id="activeExamText">Active exam</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike">
+        <div class="panelTitle">Frame Questions</div>
+        <div class="panelSub">Questions will be saved under the selected exam only</div>
+
+        <div class="locked" id="qLocked">
+          <div class="lockedInner">
+            <div>Select or create an exam first</div>
+            <div class="small" style="margin-top:8px">Once an exam is active, question framing unlocks and everything is stored in Firebase.</div>
+          </div>
+        </div>
+
+        <div class="formGrid" id="qForm">
+          <div class="field">
+            <div class="label">Question Title</div>
+            <input class="input" id="title" placeholder="e.g., Time Complexity of Binary Search" />
+          </div>
+
+          <div class="field">
+            <div class="label">Question Type</div>
+            <select class="select" id="type"></select>
+          </div>
+
+          <div class="field">
+            <div class="label">Difficulty</div>
+            <select class="select" id="difficulty"></select>
+          </div>
+
+          <div class="field">
+            <div class="label">Time Limit (seconds)</div>
+            <input class="input" id="timeLimitSec" type="number" min="10" max="600" step="5" value="45" />
+          </div>
+
+          <div class="field span2">
+            <div class="label">Question Prompt</div>
+            <textarea class="textarea" id="prompt" placeholder="Write the question prompt. For FIB, you can include a blank like: The keyword to define a constant in JS is ___."></textarea>
+          </div>
+
+          <div class="field span2">
+            <div class="label">Tags (comma separated)</div>
+            <input class="input" id="tags" placeholder="arrays, big-o, javascript" />
+            <div class="small">Comma separated tags for better categorization</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cardlike" id="typePanel">
+        <div class="panelTitle">Solution Builder</div>
+        <div class="panelSub">The fields below change based on the selected question type</div>
+        <div id="typeFields"></div>
+      </div>
+
+      <div class="panel cardlike">
+        <div class="panelTitle">Explanation (optional)</div>
+        <div class="panelSub">Shown when the user reveals the solution in the quiz player</div>
+        <div class="field" style="margin-top:16px">
+          <textarea class="textarea" id="explanation" placeholder="Why is this the correct answer? Provide a concise, helpful explanation."></textarea>
+        </div>
+      </div>
+
+      <div class="panel" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding: 20px; margin-top: 16px;">
+        <div class="small">
+          <strong>Pro tip:</strong> Use 
+          <span class="kbd" style="background: var(--card2); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--stroke);">MSQ</span> for multi-concept questions and 
+          <span class="kbd" style="background: var(--card2); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--stroke);">FIB</span> for syntax recall.
+        </div>
+        <div class="row">
+          <button class="btn ghost" id="btnReset">
+            <span class="btnIcon">↻</span>
+            Reset
+          </button>
+          <button class="btn primary" id="btnSave2" disabled>
+            <span class="btnIcon">🚀</span>
+            Publish
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../shared/exams.js"></script>
+  <script type="module" src="../shared/questions.js"></script>
+  <script type="module" src="../create/create.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

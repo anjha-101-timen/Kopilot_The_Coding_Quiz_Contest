@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../about/about.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">About Us</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="../index.html">Home</a>
+      <a class="navLink" href="../read/read.html">Exams</a>
+      <a class="navLink" href="../create/create.html">Create</a>
+      <a class="navLink" href="../leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="../about/about.html">About</a>
+      <a class="navLink" href="../contact/contact.html">Contact</a>
+      <a class="navLink" href="../refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="heroBanner">
+      <div class="heroContent">
+        <h1 class="heroTitle">We Build Coders Who Win</h1>
+        <p class="heroSub">From zero to hero—practice smart, compete hard, and track every win. Coding Quiz Contest is your launchpad to coding mastery and leaderboard glory.</p>
+        <div class="heroActions">
+          <a class="btn primary" href="../read/read.html">Start Winning</a>
+          <a class="btn ghost" href="../refer/refer.html">Invite Friends</a>
+        </div>
+      </div>
+      <div class="heroGraphic">
+        <div class="aboutIcon">
+          <svg viewBox="0 0 24 24" width="72" height="72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7V12C2 16.5 4.23 20.68 7.62 23.15L12 24L16.38 23.15C19.77 20.68 22 16.5 22 12V7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="featuresGrid">
+      <div class="featureCard card">
+        <div class="featureIcon">�</div>
+        <div class="featureContent">
+          <div class="featureTitle">Lightning‑Fast Quizzes</div>
+          <div class="featureDesc">Rapid-fire coding MCQs designed for interview prep and fundamentals. Solve, learn, repeat.</div>
+        </div>
+      </div>
+      <div class="featureCard card">
+        <div class="featureIcon">⚡</div>
+        <div class="featureContent">
+          <div class="featureTitle">Real‑Time Contests</div>
+          <div class="featureDesc">Compete live, climb ranks, and earn CP. Every contest is a chance to prove your skills.</div>
+        </div>
+      </div>
+      <div class="featureCard card">
+        <div class="featureIcon">🏆</div>
+        <div class="featureContent">
+          <div class="featureTitle">Leaderboard Glory</div>
+          <div class="featureDesc">Track progress, earn CP, level up, and dominate the leaderboard. Your rank tells your story.</div>
+        </div>
+      </div>
+      <div class="featureCard card">
+        <div class="featureIcon">�</div>
+        <div class="featureContent">
+          <div class="featureTitle">Smart Analytics</div>
+          <div class="featureDesc">Deep insights into your performance. Identify weak spots, improve faster.</div>
+        </div>
+      </div>
+      <div class="featureCard card">
+        <div class="featureIcon">🔄</div>
+        <div class="featureContent">
+          <div class="featureTitle">Reattempt & Master</div>
+          <div class="featureDesc">Practice makes perfect. Reattempt quizzes and contests until you own every concept.</div>
+        </div>
+      </div>
+      <div class="featureCard card">
+        <div class="featureIcon">🎯</div>
+        <div class="featureContent">
+          <div class="featureTitle">Targeted Learning</div>
+          <div class="featureDesc">Focus on specific topics, customize practice, and fill knowledge gaps efficiently.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="storySection card">
+      <h2 class="sectionTitle">Why We Exist</h2>
+      <p class="storyPara">Coding Quiz Contest was born from frustration—scattered resources, clunky interfaces, and no clear path to mastery. We decided to build the platform we wished we had: one place to practice, compete, and grow.</p>
+      <p class="storyPara">Our mission is simple: help you become a better coder, one quiz at a time. No fluff, no distractions—just smart practice, real competition, and progress you can see.</p>
+    </section>
+
+    <section class="codingCardsSection">
+      <h2 class="sectionTitle">100 Platform Features to Explore</h2>
+      <div class="cardsGrid" id="codingCardsGrid"></div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../about/about.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

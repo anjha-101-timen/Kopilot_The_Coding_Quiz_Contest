@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refer & Earn • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../refer/refer.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Refer & Earn</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="../index.html">Home</a>
+      <a class="navLink" href="../read/read.html">Exams</a>
+      <a class="navLink" href="../create/create.html">Create</a>
+      <a class="navLink" href="../leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="../about/about.html">About</a>
+      <a class="navLink" href="../contact/contact.html">Contact</a>
+      <a class="navLink" href="../refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="heroBanner">
+      <div class="heroContent">
+        <h1 class="heroTitle">Turn Friends into Code Warriors</h1>
+        <p class="heroSub">Share your unique referral link and watch the CP roll in. Every friend who joins becomes your ally in the coding revolution—and you both get rewarded.</p>
+        <div class="heroActions">
+          <button class="btn primary" id="btnCopy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Copy Referral Link
+          </button>
+          <button class="btn ghost" id="btnShare">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 6l-4-4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Share
+          </button>
+        </div>
+      </div>
+      <div class="heroGraphic">
+        <div class="referIcon">
+          <svg viewBox="0 0 24 24" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="9" width="4" height="12" rx="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="statsSection card">
+      <h2 class="sectionTitle">Your Referral Empire</h2>
+      <div class="statsGrid">
+        <div class="statCard">
+          <div class="statIcon">👥</div>
+          <div class="statVal" id="statReferrals">0</div>
+          <div class="statLabel">Friends Referred</div>
+        </div>
+        <div class="statCard">
+          <div class="statIcon">⚡</div>
+          <div class="statVal" id="statCpEarned">0</div>
+          <div class="statLabel">CP Earned</div>
+        </div>
+        <div class="statCard">
+          <div class="statIcon">🎯</div>
+          <div class="statVal" id="statPending">0</div>
+          <div class="statLabel">Pending Rewards</div>
+        </div>
+        <div class="statCard">
+          <div class="statIcon">🏆</div>
+          <div class="statVal" id="statLevel">0</div>
+          <div class="statLabel">Referral Level</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="howSection card">
+      <h2 class="sectionTitle">Your Path to Referral Glory</h2>
+      <div class="steps">
+        <div class="stepCard">
+          <div class="stepNum">1</div>
+          <div class="stepContent">
+            <div class="stepTitle">Share Your Link</div>
+            <div class="stepDesc">Copy your unique referral link and send it to coding friends, classmates, or anyone ready to level up their skills.</div>
+          </div>
+        </div>
+        <div class="stepCard">
+          <div class="stepNum">2</div>
+          <div class="stepContent">
+            <div class="stepTitle">They Join & Practice</div>
+            <div class="stepDesc">Your friends sign up and start crushing quizzes, contests, and challenges on the platform.</div>
+          </div>
+        </div>
+        <div class="stepCard">
+          <div class="stepNum">3</div>
+          <div class="stepContent">
+            <div class="stepTitle">CP Rewards Unlock</div>
+            <div class="stepDesc">Every milestone they hit triggers instant CP rewards for both of you. Watch your leaderboard rank soar!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rewardsSection card">
+      <h2 class="sectionTitle">Reward Tiers & Bonuses</h2>
+      <div class="rewardsGrid">
+        <div class="rewardCard">
+          <div class="rewardBadge">🚀 Starter</div>
+          <div class="rewardTitle">First Quiz</div>
+          <div class="rewardDesc">Friend completes their first quiz</div>
+          <div class="rewardSplit">
+            <span class="rewardYou">You: <strong>+15 CP</strong></span>
+            <span class="rewardFriend">Friend: <strong>+10 CP</strong></span>
+          </div>
+        </div>
+        <div class="rewardCard">
+          <div class="rewardBadge">⚡ Rising</div>
+          <div class="rewardTitle">5th Quiz</div>
+          <div class="rewardDesc">Friend hits their 5th quiz milestone</div>
+          <div class="rewardSplit">
+            <span class="rewardYou">You: <strong>+20 CP</strong></span>
+            <span class="rewardFriend">Friend: <strong>+5 CP</strong></span>
+          </div>
+        </div>
+        <div class="rewardCard">
+          <div class="rewardBadge">🏆 Champion</div>
+          <div class="rewardTitle">10th Quiz</div>
+          <div class="rewardDesc">Friend reaches double digits</div>
+          <div class="rewardSplit">
+            <span class="rewardYou">You: <strong>+30 CP</strong></span>
+            <span class="rewardFriend">Friend: <strong>+5 CP</strong></span>
+          </div>
+        </div>
+        <div class="rewardCard">
+          <div class="rewardBadge">💎 Elite</div>
+          <div class="rewardTitle">25th Quiz</div>
+          <div class="rewardDesc">Friend becomes a serious contender</div>
+          <div class="rewardSplit">
+            <span class="rewardYou">You: <strong>+50 CP</strong></span>
+            <span class="rewardFriend">Friend: <strong>+10 CP</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faqSection card">
+      <h2 class="sectionTitle">Frequently Asked Questions</h2>
+      <div class="faqList" id="faqList"></div>
+    </section>
+
+    <section class="leaderboardSection card">
+      <h2 class="sectionTitle">Top Referrers This Month</h2>
+      <div class="leaderboardList" id="leaderboardList">
+        <div class="leaderboardItem">
+          <div class="rank">1</div>
+          <div class="user">CodeMaster99</div>
+          <div class="score">1,250 CP</div>
+        </div>
+        <div class="leaderboardItem">
+          <div class="rank">2</div>
+          <div class="user">QuizNinja</div>
+          <div class="score">980 CP</div>
+        </div>
+        <div class="leaderboardItem">
+          <div class="rank">3</div>
+          <div class="user">AlgoWizard</div>
+          <div class="score">875 CP</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/attempts.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../refer/refer.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

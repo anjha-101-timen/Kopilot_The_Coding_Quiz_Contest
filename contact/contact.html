@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact • Coding Quiz Contest</title>
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/level.css" />
+  <link rel="stylesheet" href="../shared/nav.css" />
+  <link rel="stylesheet" href="../shared/page.css" />
+  <link rel="stylesheet" href="../contact/contact.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Contact Us</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navLink" href="../index.html">Home</a>
+      <a class="navLink" href="../read/read.html">Exams</a>
+      <a class="navLink" href="../create/create.html">Create</a>
+      <a class="navLink" href="../leaderboard/leaderboard.html">Leaderboard</a>
+      <a class="navLink" href="../about/about.html">About</a>
+      <a class="navLink" href="../contact/contact.html">Contact</a>
+      <a class="navLink" href="../refer/refer.html">Refer & Earn</a>
+    </nav>
+
+    <div class="pill" id="statusPill"><span class="pulse"></span><span class="pillText">Connecting…</span></div>
+  </header>
+
+  <main class="container">
+    <section class="heroBanner">
+      <div class="heroContent">
+        <h1 class="heroTitle">Let’s Build Something Great Together</h1>
+        <p class="heroSub">Got ideas, feedback, or just want to chat? Drop a line—I read every message and ship improvements fast.</p>
+      </div>
+      <div class="heroGraphic">
+        <div class="mailIcon">
+          <svg viewBox="0 0 24 24" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3 6L12 12L21 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="contactWrap">
+      <div class="contactInfo card">
+        <h2 class="sectionTitle">Get in Touch</h2>
+        <p class="contactPara">Stuck on a test? Found a bug? Want a new topic pack? Drop a message—I'll read it and ship improvements fast so you can keep practicing without interruptions.</p>
+        <p class="contactPara">Small feedback. Big impact. Your message helps make the platform sharper for everyone.</p>
+        <div class="infoRows">
+          <div class="infoRow">
+            <div class="infoLabel">Email</div>
+            <div class="infoVal">
+              <span class="infoIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 7.5C4 6.11929 5.11929 5 6.5 5H17.5C18.8807 5 20 6.11929 20 7.5V16.5C20 17.8807 18.8807 19 17.5 19H6.5C5.11929 19 4 17.8807 4 16.5V7.5Z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 8L11.12 11.84C11.62 12.215 12.31 12.215 12.81 11.84L18 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>anjtime101@gmail.com</span>
+            </div>
+          </div>
+          <div class="infoRow">
+            <div class="infoLabel">Response Time</div>
+            <div class="infoVal">Usually within 24 hours</div>
+          </div>
+          <div class="infoRow">
+            <div class="infoLabel">Social</div>
+            <div class="infoVal">
+              <a href="https://github.com/anjha-101-timen" class="miniLink" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="emailsCard" aria-label="Collected emails">
+          <div class="emailsHead">
+            <div>
+              <div class="emailsTitle">Recent emails</div>
+              <div class="emailsSub" id="emailsMeta">Loading…</div>
+            </div>
+            <button class="btn ghost" type="button" id="refreshEmails">Refresh</button>
+          </div>
+          <div class="emailsList" id="emailsList" role="list"></div>
+        </div>
+
+        <div class="emailCrudCard" aria-label="Manage emails">
+          <div class="emailsHead">
+            <div>
+              <div class="emailsTitle">Manage emails</div>
+              <div class="emailsSub">Edit or delete collected messages</div>
+            </div>
+          </div>
+          <div class="crudList" id="crudList" role="list"></div>
+        </div>
+      </div>
+
+      <form class="contactForm card" id="contactForm">
+        <h3 class="formTitle">
+          <span class="titleIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 12H16.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M7.5 8.5H13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M8 18.5H6.9C5.29837 18.5 4 17.2016 4 15.6V6.9C4 5.29837 5.29837 4 6.9 4H17.1C18.7016 4 20 5.29837 20 6.9V15.6C20 17.2016 18.7016 18.5 17.1 18.5H12.3L8.8 21C8.47 21.236 8 21.001 8 20.595V18.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Send a message</span>
+        </h3>
+        <div class="formGroup">
+          <label class="formLabel" for="name">Your Name</label>
+          <input class="input" type="text" id="name" name="name" placeholder="Jane Doe" value="A.N.Jha" required />
+        </div>
+        <div class="formGroup">
+          <label class="formLabel" for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" placeholder="you@example.com" value="anjtime101@gmail.com" required />
+        </div>
+        <div class="formGroup">
+          <label class="formLabel" for="subject">Subject</label>
+          <select class="select" id="subject" name="subject" required>
+            <option value="">Select a topic</option>
+            <option value="trending" selected>Trending</option>
+            <option value="gate">GATE Preparation</option>
+            <option value="company">Company Packs</option>
+            <option value="msq">MSQ Strategy</option>
+            <option value="nat">NAT Tips</option>
+            <option value="leaderboard">Leaderboard & Rank</option>
+            <option value="bug">Bug Report</option>
+            <option value="feature">Feature Request</option>
+            <option value="account">Account / Login</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="formGroup">
+          <label class="formLabel" for="message">Message</label>
+          <textarea class="textarea" id="message" name="message" rows="10" placeholder="Include the page (Exams/Contests/Leaderboard), what you expected, and what happened…" required>Hi! I’m loving the Coding Quiz Contest platform. I have a quick thought/suggestion/issue I wanted to share to make it even better.</textarea>
+        </div>
+        <div class="formActions">
+          <button type="submit" class="btn primary">Send Message</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="faq card">
+      <h2 class="sectionTitle">Frequently Asked Questions</h2>
+      <div class="faqTools">
+        <div class="faqHint">Tap a question to expand. These are the most common questions users ask.</div>
+      </div>
+      <div id="faqList" class="faqList" aria-label="Top frequently asked questions"></div>
+    </section>
+  </main>
+
+  <div class="toastHost" id="toastHost"></div>
+
+  <script type="module" src="../shared/firebase.js"></script>
+  <script type="module" src="../shared/ui.js"></script>
+  <script type="module" src="../shared/level.js"></script>
+  <script type="module" src="../shared/theme.js"></script>
+  <script type="module" src="../shared/nav.js"></script>
+  <script type="module" src="../contact/contact.js"></script>
+<!-- Global Zoom Widget -->
+<div class="zoom-widget">
+  <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">−</button>
+  <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+<script>
+(function(){
+  const STEP = 0.08;
+  const MIN = 0.6;
+  const MAX = 1.6;
+  const KEY = "siteZoom";
+  const root = document.documentElement;
+
+  function getZoom(){ return parseFloat(localStorage.getItem(KEY)) || 1; }
+  function setZoom(v){ v = Math.min(MAX, Math.max(MIN, v)); localStorage.setItem(KEY, v); root.style.setProperty("--zoom", v); }
+  function update(){ setZoom(getZoom()); }
+
+  document.getElementById("zoomIn")?.addEventListener("click", ()=>setZoom(getZoom()+STEP));
+  document.getElementById("zoomOut")?.addEventListener("click", ()=>setZoom(getZoom()-STEP));
+
+  document.addEventListener("keydown", e=>{
+    if(e.ctrlKey || e.metaKey){
+      if(e.key === "=" || e.key === "+"){ e.preventDefault(); setZoom(getZoom()+STEP); }
+      if(e.key === "-"){ e.preventDefault(); setZoom(getZoom()-STEP); }
+      if(e.key === "0"){ e.preventDefault(); setZoom(1); }
+    }
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>
