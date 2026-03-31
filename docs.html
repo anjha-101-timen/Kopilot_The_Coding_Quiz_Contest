@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Docs • Coding Quiz Contest Platform</title>
+  <meta name="description" content="Animated documentation for Coding Quiz Contest Platform — modules, folders, pages, and architecture." />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <div class="noise"></div>
+  </div>
+
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div>
+        <div class="brandTitle">Coding Quiz Contest</div>
+        <div class="brandSub">Animated Documentation</div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="navLink" href="./index.html">Home</a>
+      <a class="navLink" href="./README.md">README</a>
+      <a class="navLink" href="#modules">Modules</a>
+      <a class="navLink" href="#shared">Shared</a>
+      <a class="navLink" href="#architecture">Architecture</a>
+    </nav>
+
+    <div class="actions">
+      <button class="chip" id="btnTheme" type="button" aria-pressed="false" title="Toggle theme">Theme</button>
+      <button class="chip" id="btnMotion" type="button" aria-pressed="false" title="Toggle motion">Motion</button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="hero" id="top">
+      <div class="heroLeft">
+        <div class="badge">Next‑Level Docs</div>
+        <h1 class="heroTitle">
+          <span class="grad">Coding Quiz Contest Platform</span>
+          <span class="heroTitleSub">Module‑by‑module, folder‑by‑folder, feature‑by‑feature.</span>
+        </h1>
+
+        <p class="heroSub">
+          This page is the “beautiful documentation” version of the project — with gradients, cards, smooth motion, and a powerful module explorer.
+          Use it for demos, submissions, and project explanation.
+        </p>
+
+        <div class="heroCtas">
+          <a class="btn primary" href="https://anjha-101-timen.github.io/Kopilot_The_Coding_Quiz_Contest/" target="_blank" rel="noreferrer">Open Live Site</a>
+          <a class="btn" href="#modules">Explore Modules</a>
+          <a class="btn ghost" href="./README.md">Open README</a>
+        </div>
+
+        <div class="heroStats" id="heroStats" aria-label="Quick stats">
+          <div class="statCard">
+            <div class="k" id="statFolders">—</div>
+            <div class="l">Folders documented</div>
+          </div>
+          <div class="statCard">
+            <div class="k" id="statPages">—</div>
+            <div class="l">Pages</div>
+          </div>
+          <div class="statCard">
+            <div class="k" id="statShared">—</div>
+            <div class="l">Shared modules</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight" aria-hidden="true">
+        <div class="heroCard">
+          <div class="heroCardTop">
+            <div class="pill"><span class="pulse"></span> Docs Engine Online</div>
+            <div class="mono">/docs</div>
+          </div>
+          <div class="heroCardBody">
+            <div class="codeLine"><span class="g">✔</span> GitHub Pages‑safe paths</div>
+            <div class="codeLine"><span class="g">✔</span> ES Modules architecture</div>
+            <div class="codeLine"><span class="g">✔</span> Firestore (Firebase)</div>
+            <div class="codeLine"><span class="g">✔</span> CRUD + Contest UX</div>
+            <div class="codeLine"><span class="g">✔</span> CP + Leaderboard layer</div>
+          </div>
+          <div class="heroCardFoot">
+            <div class="mini">Tip</div>
+            <div class="small">Scroll — cards will fade/slide in. Use search to jump to a folder instantly.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modules">
+      <div class="sectionHead">
+        <div>
+          <h2 class="sectionTitle">Module Explorer</h2>
+          <div class="sectionSub">Search a folder name (e.g., <span class="mono">create</span>, <span class="mono">read</span>, <span class="mono">testseries</span>) and open its detailed card.</div>
+        </div>
+        <div class="sectionActions">
+          <label class="search">
+            <span class="searchIcon" aria-hidden="true">⌕</span>
+            <input id="search" class="searchInput" placeholder="Search modules: about, bookmarks, branches, create, read, update…" />
+          </label>
+          <button class="btn" id="btnExpand" type="button">Expand All</button>
+          <button class="btn ghost" id="btnCollapse" type="button">Collapse</button>
+        </div>
+      </div>
+
+      <div class="gridCards" id="modulesGrid" aria-label="Module cards"></div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="sectionHead">
+        <div>
+          <h2 class="sectionTitle">Architecture (How it all connects)</h2>
+          <div class="sectionSub">A clean mental model for evaluation, viva, and submissions.</div>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <article class="card glow">
+          <h3 class="cardTitle">User Journey</h3>
+          <div class="steps">
+            <div class="step"><div class="stepN">01</div><div><div class="stepT">Landing</div><div class="stepD">Start from <span class="mono">index.html</span> and navigate to modules.</div></div></div>
+            <div class="step"><div class="stepN">02</div><div><div class="stepT">Create / Curate</div><div class="stepD">Use <span class="mono">create/</span> to build exams and frame questions.</div></div></div>
+            <div class="step"><div class="stepN">03</div><div><div class="stepT">Read / Browse</div><div class="stepD">Open exams in <span class="mono">read/</span>, then start the contest.</div></div></div>
+            <div class="step"><div class="stepN">04</div><div><div class="stepT">Play</div><div class="stepD">Attempt questions in <span class="mono">play/</span> with palette + timer.</div></div></div>
+            <div class="step"><div class="stepN">05</div><div><div class="stepT">Results</div><div class="stepD">Analyze performance in <span class="mono">results/</span>.</div></div></div>
+            <div class="step"><div class="stepN">06</div><div><div class="stepT">CP / Profile / Leaderboard</div><div class="stepD">Track progress and compete.</div></div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="cardTitle">Core Building Blocks</h3>
+          <ul class="bullets">
+            <li><b>Pages</b>: Each feature folder has <span class="mono">.html</span> + <span class="mono">.css</span> + <span class="mono">.js</span>.</li>
+            <li><b>Shared system</b>: <span class="mono">shared/</span> contains Firebase init, navigation, theme, UI helpers, and rendering logic.</li>
+            <li><b>Data layer</b>: Firestore stores exams, questions, attempts, CP stats, and leaderboards.</li>
+            <li><b>Routing</b>: Internal links are repo‑relative so GitHub Pages works under a subpath.</li>
+          </ul>
+          <div class="callout">
+            <div class="calloutT">Design philosophy</div>
+            <div class="calloutD">Fast, clean, motivating — the UI should feel like a contest arena, not a boring form.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="shared">
+      <div class="sectionHead">
+        <div>
+          <h2 class="sectionTitle">Shared Engine Room (<span class="mono">shared/</span>)</h2>
+          <div class="sectionSub">The reusable layer that keeps the entire site consistent.</div>
+        </div>
+      </div>
+
+      <div class="gridCards" id="sharedGrid" aria-label="Shared module cards"></div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="sectionHead">
+        <div>
+          <h2 class="sectionTitle">University / Course / Team</h2>
+          <div class="sectionSub">Project submission details.</div>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <article class="card">
+          <h3 class="cardTitle">K.R. Mangalam University</h3>
+          <div class="kv">
+            <div class="kvRow"><div class="kvK">Course</div><div class="kvV">B.Tech CSE Core</div></div>
+            <div class="kvRow"><div class="kvK">Semester</div><div class="kvV">VI</div></div>
+            <div class="kvRow"><div class="kvK">Section</div><div class="kvV">C</div></div>
+            <div class="kvRow"><div class="kvK">Team Name</div><div class="kvV">Kopilot</div></div>
+            <div class="kvRow"><div class="kvK">Team Code</div><div class="kvV">26E3100</div></div>
+          </div>
+        </article>
+
+        <article class="card glow">
+          <h3 class="cardTitle">Team Members</h3>
+          <div class="members">
+            <div class="member"><div class="avatar">AJ</div><div><div class="mName">Ajay Nath Jha</div><div class="mId">2301010170</div></div></div>
+            <div class="member"><div class="avatar">MU</div><div><div class="mName">Mukul</div><div class="mId">2301010167</div></div></div>
+            <div class="member"><div class="avatar">VY</div><div><div class="mName">Varun Yadav</div><div class="mId">2301010173</div></div></div>
+            <div class="member"><div class="avatar">PR</div><div><div class="mName">Priyanshu</div><div class="mId">2301010148</div></div></div>
+            <div class="member"><div class="avatar">MA</div><div><div class="mName">Manish Ambawat</div><div class="mId">2301010147</div></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerInner">
+        <div>
+          <div class="footerT">Coding Quiz Contest Platform</div>
+          <div class="footerS">Animated documentation page for GitHub Pages & project submissions.</div>
+        </div>
+        <div class="footerLinks">
+          <a class="footerLink" href="#top">Back to top</a>
+          <a class="footerLink" href="./index.html">Open site</a>
+          <a class="footerLink" href="./README.md">README</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./docs.js" defer></script>
+</body>
+</html>
